@@ -1,6 +1,6 @@
 var PIXELATION = 15;
 
-var photoContainer = document.querySelector('.parent');
+var photoContainer = document.querySelector('.about__photo-wrapper');
 const image = document.querySelector('img.about__photo');
 let imgPixelation = 1;
 const maxPixelation = 15;
