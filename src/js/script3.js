@@ -227,7 +227,7 @@ if(image.complete) {
 }
 
 
-var preload = document.querySelector('.preload');
+var preload = document.querySelector('.preloader');
 
 preload.classList.add('show-preloader');
 document.querySelector('body').style.overflow = 'hidden';
