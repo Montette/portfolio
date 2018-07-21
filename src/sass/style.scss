@@ -36,12 +36,22 @@
 body {
   background-color: #eeeeee;
   background-color: #f6f8ff; //  background-color: #fbfbfb;
+  background-color: #a7b0cf;
+  background-color: #d4ddfd;
+  background-color: #e6ebff;
+  // background-color: #b9c4ee;
   /* background-color: #fff8d0;
  background-color: #e8f2f7; */
   //  background-color: #0f0d2b; 
   //  background-color: #feffc4; 
-  font-family: 'Oswald', sans-serif; // background-color: #19145e;
+  font-family: 'Ubuntu', sans-serif; // background-color: #19145e;
   font-weight: 300;
+  color: #333333;
+  font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Titillium Web', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+    // font-family: 'Exo', sans-serif;
 }
 
 .preloader {
@@ -214,7 +224,7 @@ body {
   // padding-bottom: 100px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
   background-color: #fff;
-  z-index: 99999;
+  // z-index: 99999;
   &__container {
     @include container;
     display: flex;
@@ -222,7 +232,7 @@ body {
     align-items: center;
     flex-direction: column;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
-    padding-bottom: 250px;
+    padding-bottom: 350px;
     min-height: 100vh;
   }
   &__header {
@@ -233,17 +243,14 @@ body {
     width: 600px;
   }
   &__title {
-    font-size: 25px;
-    text-align: center;
+
+    @include sectionTitle(none, 22px);
     margin-bottom: 50px;
-    color: #333333;
-    line-height: 30px;
-    text-transform: none;
     font-weight: 400;
-    font-size: 22px;
-    letter-spacing: 2px;
+    
     order: 2;
-    font-family: 'Fira Mono', monospace; 
+ 
+    // font-family: 'Comfortaa', cursive;
   }
   &__photo-wrapper {
     width: 350px;
@@ -264,32 +271,23 @@ body {
     justify-content: space-between;
     margin-top: 50px; // font-family: 'Oswald', sans-serif;
     font-weight: 300;
+    flex-wrap: wrap;
   }
   &__item {
     text-align: center;
     width: 30%;
     letter-spacing: 1px;
-    font-family: 'Ubuntu', sans-serif; 
-    color: #333333;
+    
     line-height: 30px; 
   }
   &__subtitle {
+    @include sectionTitle(uppercase, 18px);
     position: relative;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 22px;
-    letter-spacing: 2px;
-    font-family: 'Fira Mono', monospace;
+    
+    
     &::after {
-      content: '';
-      position: absolute;
-      width: 10%;
-      height: 3px;
-      top: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #5f6cd9;
+      @include underline(10%, 3px, 120%, $violetBlue);
     }
   }
 }
@@ -305,22 +303,92 @@ canvas {
 }
 
 .skills {
-  height: 100vh;
+  // @include container;
+  min-height: 100vh;
   /* background-color: #081f24; kolor do stopki? */
   background-color: #eeeeee;
   background-color: #fbfbfb;
-  background-color: #f6f8ff;
+  background-color: #a7b0cf;
+  background-color: #b9c4ee;
+  background-color: #e1e7ff;
+  background-color: #d4ddfd;
+  background-color: #e6ebff;
+  
   /* background-color: #e8f2f7; */
   //  background-color: #0f0d2b; 
   // background-color: #19145e;
   position: relative; // top: 100vh;
-  z-index: -1000;
+  // z-index: -1000;
   /* background-color: rgba(255, 255, 233, 0.658); */
+  &__container {
+    @include container;
+  }
+  
+  &__title {
+    @include sectionTitle(none, 25px);
+    // font-family: 'Comfortaa', cursive;
+    margin-bottom: 120px;
+    
+    position: relative;
+    // text-transform: uppercase;
+   
+    
+    &::after {
+      @include underline(10%, 5px, 150%, $violetBlue);
+    }
+
+  }
+  &__content {
+    
+  }
+  &__row {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__description {
+    text-align: center;
+    font-size: 18px;
+    line-height: 35px;
+    position: relative;
+    &::after {
+      @include underline(80%, 1px, 120%, #ced3ff);
+    }
+    
+  }
+  &__strong {
+    font-weight: 700;
+  }
+  
 }
 
 
+.icons {
 
-
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  &__item {
+    // width: 150px;
+    margin: 0 40px;
+    text-align: center;
+  
+  }
+  &__icon {
+    width: 130px;
+    height: 130px;
+  }
+  &__title {
+    color: $violetBlue;
+    // font-weight: 700;
+    // font-size: 20px;
+    // font-family: 'Fira Mono', monospace; 
+    // font-family: 'Exo 2', sans-serif;
+    @include sectionTitle(none, 20px);
+    letter-spacing: .5px;
+  }
+}
 
 
 .devicon-css3-plain-wordmark.colored {
@@ -332,36 +400,55 @@ canvas {
 
 
 .projects {
-  height: 100vh;
-  width: 100vw;
+  
+
   overflow-x: hidden;
-  position: absolute;
-  left: 0;
-  top: 300vh;
   clip-path: polygon(49% 0, 100% 28%, 100% 100%, 0 100%, 0 29%);
   background-color: #fff;
+  &__title {
+    @include sectionTitle (none, 25px);
+    position: relative;
+    margin-bottom: 100px;
+    &::after {
+      @include underline(10%, 5px, 150%, $violetBlue);
+    }
+  }
+  &__container {
+    @include container;
+    padding-top: 150px;
+    
+    
+    
+    min-height: 100vh;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
-.projects::after {
-  content: '';
-  position: absolute;
-  background-color: #fff3c6;
-  background-color: #5f6cd9;
-  background-color: #19145e;
-  background-color: #fff89d; // clip-path: polygon(50% 100%, 0 79%, 50% 95%, 100% 79%);
-  clip-path: polygon(49% 4%, 0 31%, 49% 0, 100% 31%);
-  clip-path: polygon(49.5% 5%, 0 30%, 49.5% 0%, 100% 28.5%);
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 8px;
+.project {
+  display: flex;
+  width: 80%;
+  &__description {
+    width: 50%;
+  }
+  &__photo-container{
+    width: 50%;
+  }
+  &__photo {
+    max-width: 100%;
+    height: auto;
+  }
 }
+
 
 .contact {
   height: 60vh;
   width: 100vw;
   position: relative;
-  top: 200vh;
+  // top: 200vh;
   background-color: #081f24;
 }
 
