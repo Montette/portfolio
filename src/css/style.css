@@ -1039,14 +1039,40 @@ canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 80%; }
+  width: 90%; }
   .project__description {
     width: 50%; }
   .project__photo-container {
     width: 50%; }
+  .project__title {
+    margin: 0 0 30px 0; }
   .project__photo {
     max-width: 100%;
     height: auto; }
+  .project__description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .project__wrapper {
+    padding-left: 20px;
+    text-align: center; }
+  .project__technologies {
+    margin: 40px 0 0 0;
+    padding: 0; }
+  .project__technology {
+    display: inline-block;
+    background-color: #6767d8;
+    color: #fff;
+    padding: 5px 4px;
+    border-radius: 2px;
+    -webkit-box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.3); }
 
 .contact {
   height: 60vh;
