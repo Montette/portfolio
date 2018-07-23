@@ -105,9 +105,8 @@
                         <strong class="skills__strong">metodologii BEM.</strong> Lubię się bawić CSSem i eksperymentować z jego najnowszymi featurami, zaś
                         dzięki technologiom yakim jak
                         <strong class="skills__strong">Flexbox</strong>, czy
-                        <strong class="skills__strong">CSS Grid</strong>, witryny, które tworzę są w pełni responsywne. Dzięki znajomości JavaScriptu, w
-                        tym
-                        <strong class="skills__strong"> EcmaScript 6</strong>, jestem w stanie tchnąć w nie trochę życia i umożliwić interakcję z użytkownikiem.</p>
+                        <strong class="skills__strong">CSS Grid</strong>, witryny, które tworzę są w pełni responsywne. Znajomość JavaScriptu, w tym
+                        <strong class="skills__strong"> EcmaScript 6</strong>, pozwala mi wprowadzenie odrobiny dynamiki i umożliwia interakcję z użytkownikiem.</p>
                 </div>
                 <div class="skills__row">
                     <div class="skills__icons icons">
@@ -573,13 +572,42 @@
 
     </section>
     <section class="contact">
+        <div class="contact__container">
+            <header class="contact__header">
+            <h2 class="contact__title">Kontakt</h2>
+            <p class="contact__subtitle">Jesteś zainteresowany współpracą? Masz jakieś pytania? Napisz do mnie</p>
+            <p class="contact__email-adress">monika.radosiewicz@gmail.com</p>
+        </header>
+            <form action="https://formspree.io/monika.radosiewicz@gmail.com"
+            method="POST" class="contact__form form">
+                <label for="name" class="form__label" name="name">
+                    Imię
+                </label>
+                    <input type="text" class="form__input form__input--name"  required>
+                    <p class="form__warning-text">Podaj swoje imię</p>
+                
+                <label for="email" class="form__label">
+                    Adres e-mail
+                </label>
+                        <input type="email" class="form__input form__input--email" name="email" required>
+                        <p class="form__warning-text">Podaj poprawny adres-email</p>
+                   
+                    <label for="message" class="form__label">
+                        Twoja wiadomość  </label>
+                            <textarea class="form__input form__input--message" name="message" required> </textarea>
+                      
+                    <button name= "submit-button" type="submit" class="form__button">Wyślij wiadomość</button>
+
+            </form>
+
+        </div>
 
 
 
-        <div class="twinkling aa"></div>
+        <!-- <div class="twinkling aa"></div>
         <div class="stars aa"></div>
 
-        <div class="layer aa"></div>
+        <div class="layer aa"></div> -->
     </section>
 
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -589,7 +617,9 @@
 
 
     <!-- <script src="js/loader.js"></script> -->
-    <script src="js/script2.js"></script>
+    <script src="js/pixelate.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/form.js"></script>
 
 </body>
 

@@ -625,6 +625,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   color: #333333;
+  color: #3d3d3d;
   font-family: 'Raleway', sans-serif;
   font-family: 'Montserrat', sans-serif;
   font-family: 'Exo 2', sans-serif; }
@@ -686,7 +687,7 @@ body {
   width: 100vw;
   position: relative;
   z-index: 1;
-  background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center; }
+  background: #000 url(../img/stars-bcg.png) repeat top center; }
   .header__layer {
     position: absolute;
     top: 0;
@@ -857,7 +858,8 @@ body {
     text-align: center;
     width: 30%;
     letter-spacing: 1px;
-    line-height: 30px; }
+    line-height: 28px;
+    font-size: 16px; }
   .about__subtitle {
     text-align: center;
     line-height: 30px;
@@ -919,12 +921,12 @@ canvas {
     line-height: 30px;
     text-transform: none;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 35px;
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    margin-bottom: 120px;
-    position: relative; }
+    position: relative;
+    margin-bottom: 180px; }
     .skills__title::after {
       content: '';
       position: absolute;
@@ -947,8 +949,9 @@ canvas {
             flex-direction: column; }
   .skills__description {
     text-align: center;
+    letter-spacing: 1px;
+    line-height: 28px;
     font-size: 16px;
-    line-height: 35px;
     position: relative; }
     .skills__description::after {
       content: '';
@@ -1071,7 +1074,10 @@ canvas {
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 16px; }
     .project__description--withoutBorder {
       border: none; }
   .project__wrapper {
@@ -1150,10 +1156,127 @@ canvas {
     border: none; }
 
 .contact {
-  height: 60vh;
+  min-height: 60vh;
   width: 100vw;
   position: relative;
-  background-color: #081f24; }
+  color: #fff;
+  background: #000 url(../img/stars-bcg.png) repeat top center; }
+  .contact::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+    background: linear-gradient(-45deg, #0f0d2b, #646ed1, #18269c, #15346d);
+    background-size: 400% 400%;
+    z-index: 2; }
+  .contact__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px 90px 50px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .contact__header {
+    width: 100%; }
+  .contact__title {
+    text-align: center;
+    line-height: 30px;
+    text-transform: none;
+    font-weight: 700;
+    font-size: 35px;
+    letter-spacing: 2px;
+    font-family: 'Fira Mono', monospace;
+    font-family: 'Exo 2', sans-serif;
+    position: relative;
+    margin-bottom: 80px; }
+    .contact__title::after {
+      content: '';
+      position: absolute;
+      height: 5px;
+      width: 10%;
+      top: 150%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      background-color: #6781d8;
+      display: block; }
+  .contact__subtitle {
+    font-weight: 700; }
+  .contact__email-adress {
+    font-weight: 700;
+    color: #b9c4ee; }
+
+.form {
+  width: 600px;
+  margin-top: 50px; }
+  .form__input {
+    width: 100%;
+    height: 40px;
+    margin: 3px 0 10px 0;
+    background-color: #121839;
+    background-color: #646ed1;
+    background-color: #26316c;
+    opacity: .6;
+    border: none;
+    color: #fff;
+    padding: 0 0 0 10px;
+    font-weight: 300;
+    font-size: 14px; }
+    .form__input--message {
+      height: 150px;
+      padding: 10px 0 0 10px; }
+    .form__input.validate-warning {
+      border-bottom: 1px solid #740000; }
+  .form__label {
+    display: block;
+    text-align: left;
+    color: #a7b0cf;
+    font-weight: 700; }
+  .form__button {
+    display: block;
+    width: 180px;
+    margin: 20px auto 0 auto;
+    background-color: transparent;
+    color: #d6b963;
+    border: 2px solid #d6b963;
+    padding: 15px 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    -webkit-transition: .3s;
+    transition: .3s; }
+    .form__button:hover {
+      background-color: #d6b963;
+      color: #121839;
+      border: 2px solid #121839;
+      cursor: pointer; }
+  .form__warning-text {
+    color: #740000;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 13px;
+    display: none; }
+
+.visible {
+  display: block; }
 
 .twinkling.aa {
   opacity: 0; }

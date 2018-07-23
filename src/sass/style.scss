@@ -39,7 +39,7 @@ body {
   background-color: #a7b0cf;
   background-color: #d4ddfd;
   background-color: #e6ebff;
-  // background-color: #b9c4ee;
+  // background-color: #b9c4ee;s
   /* background-color: #fff8d0;
  background-color: #e8f2f7; */
   //  background-color: #0f0d2b; 
@@ -47,6 +47,7 @@ body {
   font-family: 'Ubuntu', sans-serif; // background-color: #19145e;
   font-weight: 300;
   color: #333333;
+  color: #3d3d3d;
   font-family: 'Raleway', sans-serif;
     font-family: 'Montserrat', sans-serif;
     // font-family: 'Titillium Web', sans-serif;
@@ -110,7 +111,7 @@ body {
   width: 100vw;
   position: relative;
   z-index: 1;
-  background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  background: #000 url(../img/stars-bcg.png) repeat top center;
   &__layer {
     position: absolute;
     top: 0;
@@ -277,9 +278,9 @@ body {
   &__item {
     text-align: center;
     width: 30%;
-    letter-spacing: 1px;
-    
-    line-height: 30px; 
+    // letter-spacing: 1px;
+    // line-height: 30px; 
+    @include text;
   }
   &__subtitle {
     @include sectionTitle(uppercase, 18px);
@@ -334,13 +335,9 @@ height: auto;
   }
   
   &__title {
-    @include sectionTitle(none, 25px);
-    // font-family: 'Comfortaa', cursive;
-    margin-bottom: 120px;
-    
+    @include sectionTitle (none, 35px);
     position: relative;
-    // text-transform: uppercase;
-   
+    margin-bottom: 180px;
     
     &::after {
       @include underline(10%, 5px, 150%, $violetBlue);
@@ -358,8 +355,9 @@ height: auto;
   
   &__description {
     text-align: center;
-    font-size: 16px;
-    line-height: 35px;
+    // font-size: 16px;
+    // line-height: 35px;
+    @include text;
     position: relative;
     &::after {
       @include underline(80%, 1px, 120%, #ced3ff);
@@ -460,6 +458,7 @@ height: auto;
   }
   &__title {
     margin: 0 0 30px 0;
+    // color: $violetBlue;
     
   }
   &__photo {
@@ -474,6 +473,7 @@ height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include text;
  
     // border-bottom: 6px solid $violetBlue;
     // border-top: 4px solid $violetBlue;
@@ -570,12 +570,133 @@ height: auto;
 }
 
 .contact {
-  height: 60vh;
+  min-height: 60vh;
   width: 100vw;
   position: relative;
+  color: #fff;
   // top: 200vh;
-  background-color: #081f24;
+  background: #000 url(../img/stars-bcg.png) repeat top center;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+    background: linear-gradient(-45deg, #0f0d2b, #646ed1, #18269c, #15346d);
+    background-size: 400% 400%;
+    z-index: 2;
+  
+    
+  }
+  &__container {
+    @include container;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__header {
+    width: 100%;
+  }
+  &__title {
+    @include sectionTitle(none, 35px);
+    position: relative;
+    margin-bottom: 80px;
+    &::after {
+      @include underline(10%, 5px, 150%, $violetBlue);
+    }
+
+  }
+  
+  &__subtitle {
+    font-weight: 700;
+  }
+  &__email-adress {
+    font-weight: 700;
+    color: #b9c4ee;
+    // color: #d6b963;
+  }
+
+
 }
+
+.form {
+  width: 600px;
+  margin-top: 50px;
+ 
+  &__input {
+    width: 100%;
+    height: 40px;
+    margin: 3px 0 10px 0;
+    background-color: #121839;
+    background-color: #646ed1;
+    background-color: #26316c;
+    opacity: .6;
+    border: none;
+    color: #fff;
+    padding: 0 0 0 10px;
+    font-weight: 300;
+    font-size: 14px;
+    &--message {
+      height: 150px;
+      padding: 10px 0 0 10px;
+    }
+    &.validate-warning {
+      border-bottom: 1px solid rgb(116, 0, 0);
+    }
+   
+  }
+  &__label {
+    display: block;
+    text-align: left;
+    color: #a7b0cf;
+    font-weight: 700;
+  }
+  &__button {
+    display: block;
+    width: 180px;
+    margin: 20px auto 0 auto;
+    background-color: transparent;
+    color: #d6b963;
+    border: 2px solid #d6b963;
+    padding: 15px 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .3s;
+    &:hover {
+      background-color: #d6b963;
+      color: #121839;
+      border: 2px solid #121839;
+      cursor: pointer;
+    
+    }
+  }
+ 
+  &__warning-text {
+    color: rgb(116, 0, 0);
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 13px;
+    display: none;
+    
+  }
+}
+
+.visible {
+  display: block;
+}
+
+// .validate-warning {
+//   border-bottom: 1px solid rgb(116, 0, 0);
+// }
 
 .twinkling.aa {
   opacity: 0;

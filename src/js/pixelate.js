@@ -1,55 +1,270 @@
+
+
+// requestAnimationFrame polyfill by Erik Möller. 
+
+var lastTime = 0;
+var vendors = ['webkit', 'moz'];
+for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+    window.cancelAnimationFrame =
+      window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+}
+
+if (!window.requestAnimationFrame)
+    window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+    };
+
+if (!window.cancelAnimationFrame)
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+
+
+var lastTime = 0;
+var vendors = ['webkit', 'moz'];
+for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+    window.cancelAnimationFrame =
+      window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+}
+
+if (!window.requestAnimationFrame)
+    window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+    };
+
+if (!window.cancelAnimationFrame)
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+
+
+    // end of  requestAnimationFrame polyfill 
+
+
+
+
 var PIXELATION = 15;
 
-var photoContainer = document.querySelector('.about__photo-wrapper');
-const image = document.querySelector('img.about__photo');
-let imgPixelation = 1;
-const maxPixelation = 15;
-let idUndraw,
-idDraw;
+var items = document.querySelectorAll('.pixelate'),
+    _objs = [];
 
-let canvas;
-let context;
-let imageWidth;
-let imageHeight;
+var Images = function( element, image, canvas, context ) {
+    this.element    = element;
+    this.image      = image;
+    this.canvas     = canvas;
+    this.context    = context;
+    this.pixelation = 1;
+}
 
-// var element = photoContainer,
-// image   = document.querySelector('img'),
+Images.prototype.bindLoad = function() {
+    var obj = this;
+
+    this.image.onload = function() {
+        obj.reportLoad.call(obj);
+    };
+
+  if ( this.image.complete ) {
+        this.image.onload();
+    }
+}
+
+// Images.prototype.reportLoad = function() {
+//     var obj = this;
+
+//     this.imageWidth    = this.canvas.width   = this.image.width;
+//     this.imageHeight   = this.canvas.height  = this.image.height;
+//     this.context.drawImage( this.image, 0, 0 );
+
+//     this.element.addEventListener('mouseover', function() {
+//         obj.mouseOver();
+//     }, false);
+
+//     this.element.addEventListener('mouseout', function() {
+//         obj.mouseOut();
+//     }, false);
+// }
 
 
 
+Images.prototype.reportLoad = function() {
+    var obj = this;
+
+    this.imageWidth    = this.canvas.width   = this.image.naturalWidth;
+    this.imageHeight   = this.canvas.height  = this.image.naturalHeight;
+    this.context.drawImage( this.image, 0, 0 );
+    obj.mouseOver();
+    let scrolling = true;
+    window.addEventListener('scroll', function() {
+
+        if (obj.isInViewport() && scrolling) {
+            obj.mouseOut();
+            scrolling = false;
+            
+
+        } 
+
+
+    }, false);
 
 
 
-// canvas  = document.createElement('canvas');
-//     let imageWidth = canvas.width = image.width;
-//     let imageHeight = canvas.height = image.height;
-
-// context = canvas.getContext('2d');
-
-// photoContainer.appendChild( canvas );
+            this.element.addEventListener('mouseenter', function(event) {
 
 
+                if(event.target.classList.contains('project__photo-container')) {
+                    console.log('mouseover')
+                obj.mouseOver();
+                setTimeout(() => {
+            
+                //   obj.canvas.style.opacity='0';
+                //   document.querySelector(` .${event.target.classList[0]} .project__hiddenText`).style.opacity = '.8';
+                  console.log(obj.element.children[2]);
+
+                //   obj.element.children[2].style.opacity = '.8';
+
+                //   obj.element.children[2].style.transform = 'translate(-50%, -50%) scale(1)';
+                 
+
+                //   obj.mouseOut();
+                  
+                }, 300);
 
 
+            } else {
+                obj.mouseOver();
+            }
 
+                console.log(event.target);
+              console.log(event.target.parentElement)  ;
+              console.log(obj.element);
+
+        // obj.mouseOver();
+
+    }, false);
+
+    this.element.addEventListener('mouseleave', function() {
+        console.log(event.target);
+              console.log(event.target.parentElement)  ;
+
+        if(event.target.classList.contains('project__photo-container')) {
+    // obj.mouseOver();
+    // obj.canvas.style.opacity='.5';
+    // document.querySelector('.project__hiddenText').style.opacity = '0';
+
+    // obj.element.children[2].style.opacity = '0';
+
+    // obj.element.children[2].style.transform = 'translate(-50%, -50%) scale(0)';
+    // obj.element.children[2].style.width = '0';
+    //               obj.element.children[2].style.height = '0';
+
+    // setTimeout(() => {
+console.log('1')
     
+    // obj.canvas.style.opacity='1';
 
-const setPixels = function() {
-    var sw          = imageWidth,
-        sh          = imageHeight,
-        imageData   = context.getImageData( 0, 0, sw, sh ),
+
+
+
+
+        obj.mouseOut();
+    // }, 500);
+
+} else {
+    obj.mouseOut();
+    console.log('2')
+}
+
+
+    }, false);
+
+
+
+
+
+
+
+    // this.element.addEventListener('mouseout', function() {
+    //     obj.mouseOut();
+    // }, false);
+
+   
+
+
+}
+
+Images.prototype.isInViewport = function() {
+    var obj = this;
+    var bounding = this.image.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+
+
+Images.prototype.mouseOver = function() {
+    var obj = this;
+    cancelAnimationFrame( obj.idUndraw );
+    var draw = function() {
+        if ( obj.pixelation >= PIXELATION ) {
+            cancelAnimationFrame( obj.idDraw );
+            obj.pixelation = PIXELATION;
+        } else {
+            obj.context.drawImage( obj.image, 0, 0, obj.imageWidth, obj.imageHeight, 0, 0, obj.imageWidth, obj.imageHeight);
+            obj.pixelate( obj.imageWidth, 0, 0, obj.imageHeight );
+            obj.idDraw = requestAnimationFrame( draw, obj.context );
+        }
+    };
+    obj.idDraw = requestAnimationFrame( draw, obj.context );
+}
+
+Images.prototype.mouseOut = function() {
+    var obj = this;
+    cancelAnimationFrame( obj.idDraw );
+    var undraw = function() {
+        if ( obj.pixelation < 1 ) {
+            cancelAnimationFrame( obj.idUndraw );
+            obj.pixelation = 1;
+        } else {
+            obj.context.drawImage( obj.image, 0, 0 );
+            obj.depixelate( obj.imageWidth, obj.imageHeight, 0, 0 );
+            obj.idUndraw = requestAnimationFrame( undraw, obj.context );
+        }
+    };
+    obj.idUndraw = requestAnimationFrame( undraw, obj.context );
+}
+
+Images.prototype.setPixels = function() {
+    var sw          = this.imageWidth,
+        sh          = this.imageHeight,
+        imageData   = this.context.getImageData( 0, 0, sw, sh ),
         data        = imageData.data,
         y, x, n, m;
 
-    for ( y = 0; y < sh; y += imgPixelation ) {
-        for ( x = 0; x < sw; x += imgPixelation ) {
+    for ( y = 0; y < sh; y += this.pixelation ) {
+        for ( x = 0; x < sw; x += this.pixelation ) {
 
             var red = data[((sw * y) + x) * 4];
             var green = data[((sw * y) + x) * 4 + 1];
             var blue = data[((sw * y) + x) * 4 + 2];
 
-            for ( n = 0; n < imgPixelation; n++ ) {
-                for ( m = 0; m < imgPixelation; m++ ) {
+            for ( n = 0; n < this.pixelation; n++ ) {
+                for ( m = 0; m < this.pixelation; m++ ) {
                     if ( x + m < sw ) {
                         data[((sw * (y + n)) + (x + m)) * 4] = red;
                         data[((sw * (y + n)) + (x + m)) * 4 + 1] = green;
@@ -60,181 +275,40 @@ const setPixels = function() {
         }
     }
 
-    context.putImageData( imageData, 0, 0 );
+    this.context.putImageData( imageData, 0, 0 );
 }
 
-
-
-const pixelate = function() {
-    setPixels();
-    imgPixelation += 1;
+Images.prototype.pixelate = function() {
+    this.setPixels();
+    this.pixelation += 1;
 }
 
-const depixelate = function() {
-    setPixels();
-    imgPixelation -= 1;
+Images.prototype.depixelate = function() {
+    this.setPixels();
+    this.pixelation -= 1;
 }
 
+Array.prototype.slice.call(items, 0).forEach(function(el, i) {
+    var element = el;
+        image   = el.querySelector('img'),
+        canvas  = document.createElement('canvas'),
+        context = canvas.getContext('2d');
 
+    el.appendChild( canvas );
 
-
-
-
-
-
-
-
-
-const mouseOut = () => {
-    cancelAnimationFrame( idDraw );
-    var undraw = function() {
-        if ( imgPixelation < 1 ) {
-            cancelAnimationFrame( idUndraw );
-            imgPixelation = 1;
-        } else {
-            context.drawImage( image, 0, 0 );
-            depixelate( imageWidth,imageHeight, 0, 0 );
-             idUndraw = requestAnimationFrame( undraw, context );
-        }
-    };
-    idUndraw = requestAnimationFrame( undraw, context );
-}
-
-
-const mouseOver = () => {
-
-    cancelAnimationFrame( idUndraw );
-    var draw = function() {
-        if ( imgPixelation >= maxPixelation ) {
-            cancelAnimationFrame(idDraw );
-            imgPixelation = maxPixelation;
-        } else {
-            context.drawImage( image, 0, 0, imageWidth, imageHeight, 0, 0, imageWidth, imageHeight);
-            pixelate( imageWidth, 0, 0, imageHeight );
-             idDraw = requestAnimationFrame( draw, context );
-        }
-    };
-     idDraw = requestAnimationFrame( draw, context );
-}
-
-
-
-// const isInViewport = () => {
-  
-//     var bounding = image.getBoundingClientRect();
-    
-//     return (
-//         bounding.top >= 0 &&
-//         bounding.left >= 0 &&
-//         bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-//         bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-//     );
-// }
-
-const isInViewport = () => {
-    var viewportHeight = document.querySelector('.about').clientHeight;
-    var bounding = image.getBoundingClientRect().top;
-    return (
-        bounding > viewportHeight/3 && bounding < viewportHeight/2.2
-    );
-}
-
-
-// document.addEventListener('DOMContentLoaded', ()=> {
-//     mouseOver();
-    
-// })
-
-
-window.addEventListener('scroll', function () {
-    let scrolling = true;
-
-    // if (isInViewport() && scrolling) {
-    //     setTimeout(() => {
-    //         mouseOut(); 
-    //     }, 1000);
-        
-    //     scrolling = false;
-    // }
-
-    if(isInViewport() && scrolling)  {
-
-        mouseOut();
-        scrolling = false;
-        console.log('juz')
-    }
-
-}, false);
-
-
-
-// window.addEventListener('scroll', function () {
-   
-
-//     if (isInViewport()) {
-//         mouseOut();
-        
-//     } else{
-//         mouseOver();
-        
-//     }
-
-// }, false);
-
-
-
-
-
-
-
-photoContainer.addEventListener('mouseover', function () {
-    mouseOver();
-}, false);
-
-photoContainer.addEventListener('mouseout', function () {
-    mouseOut();
-}, false);
-
-
-
-
-
-
-
-
-
-image.onload = () => {
-    
-
-    
-
-    canvas = document.createElement('canvas');
-    context = canvas.getContext('2d');
-     imageWidth = canvas.width = image.width;
-     imageHeight = canvas.height = image.height;
-    // context.drawImage(image, 0, 0);
-
-    // setPixels();
-
-    photoContainer.appendChild(canvas);
-    context.drawImage(image, 0, 0);
-    mouseOver();
-
-}
-
-if(image.complete) {
-    image.onload()
-}
-
-
-var preload = document.querySelector('.preloader');
-
-preload.classList.add('show-preloader');
-document.querySelector('body').style.overflow = 'hidden';
-
-window.addEventListener('load', function () {
-    
-        preload.classList.remove('show-preloader');
-        document.querySelector('body').style.overflow = 'visible';
-   
+    _objs.push( new Images( element, image, canvas, context ) );
+    _objs[i].bindLoad();
 });
+
+
+
+    // var element = items,
+    //     image   = document.querySelector('img'),
+    //     canvas  = document.createElement('canvas'),
+    //     context = canvas.getContext('2d');
+
+    // items.appendChild( canvas );
+
+    //  let img = new Images( element, image, canvas, context );
+    // img.bindLoad();
+
