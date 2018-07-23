@@ -26,6 +26,30 @@ if (!window.cancelAnimationFrame)
     };
 
 
+var lastTime = 0;
+var vendors = ['webkit', 'moz'];
+for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+    window.cancelAnimationFrame =
+      window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+}
+
+if (!window.requestAnimationFrame)
+    window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+    };
+
+if (!window.cancelAnimationFrame)
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+
+
     // end of  requestAnimationFrame polyfill 
 
 
@@ -96,12 +120,73 @@ Images.prototype.reportLoad = function() {
 
 
 
-            this.element.addEventListener('mouseover', function() {
-        obj.mouseOver();
+            this.element.addEventListener('mouseenter', function(event) {
+
+
+                if(event.target.classList.contains('project__photo-container')) {
+                    console.log('mouseover')
+                obj.mouseOver();
+                setTimeout(() => {
+            
+                //   obj.canvas.style.opacity='0';
+                //   document.querySelector(` .${event.target.classList[0]} .project__hiddenText`).style.opacity = '.8';
+                  console.log(obj.element.children[2]);
+
+                //   obj.element.children[2].style.opacity = '.8';
+
+                //   obj.element.children[2].style.transform = 'translate(-50%, -50%) scale(1)';
+                 
+
+                //   obj.mouseOut();
+                  
+                }, 300);
+
+
+            } else {
+                obj.mouseOver();
+            }
+
+                console.log(event.target);
+              console.log(event.target.parentElement)  ;
+              console.log(obj.element);
+
+        // obj.mouseOver();
+
     }, false);
 
-    this.element.addEventListener('mouseout', function() {
+    this.element.addEventListener('mouseleave', function() {
+        console.log(event.target);
+              console.log(event.target.parentElement)  ;
+
+        if(event.target.classList.contains('project__photo-container')) {
+    // obj.mouseOver();
+    // obj.canvas.style.opacity='.5';
+    // document.querySelector('.project__hiddenText').style.opacity = '0';
+
+    // obj.element.children[2].style.opacity = '0';
+
+    // obj.element.children[2].style.transform = 'translate(-50%, -50%) scale(0)';
+    // obj.element.children[2].style.width = '0';
+    //               obj.element.children[2].style.height = '0';
+
+    // setTimeout(() => {
+console.log('1')
+    
+    // obj.canvas.style.opacity='1';
+
+
+
+
+
         obj.mouseOut();
+    // }, 500);
+
+} else {
+    obj.mouseOut();
+    console.log('2')
+}
+
+
     }, false);
 
 
