@@ -203,7 +203,7 @@ ul {
         @include screen ("tabletAndPhone") {
         //    margin-left: 0;
         //    margin-bottom: 20px;
-           margin: 20px 0 20px 0;
+           margin: 35px 0 35px 0;
            text-align: center;
         }
     }
@@ -220,7 +220,7 @@ ul {
             padding-bottom: 10px;
         }
         @include screen ("tabletAndPhone") {
-            font-size: 2.4rem;
+            font-size: 23px;
          }
     }
     &__logo {
@@ -267,6 +267,7 @@ ul {
   transform: rotate(0deg) translateY(-50%);
   transition: .5s ease-in-out;
   outline: none;
+  display: none;
   & span {
     display: block;
     position: absolute;
@@ -279,6 +280,9 @@ ul {
     transform: rotate(0deg);
     transition: .25s ease-in-out;
   }
+  @include screen ("tabletAndPhone") {
+    display: block;
+ }
   
 }
 
@@ -406,7 +410,11 @@ ul {
     opacity: .3;
     animation: move-clouds-back 200s linear infinite;
   }
+  @include screen ("phone") {
+      @include flexPosition(center,center);
+ }
   &__title {
+    display: inline-block;
     color: #fff;
     font-size: 45px;
     font-family: 'Poppins', sans-serif; // font-family: 'Exo 2', sans-serif;
@@ -424,8 +432,17 @@ ul {
     position: relative;
     top: 30vh;
     left: 20vw;
-    width: 800px;
+    // width: 800px;
     z-index: 10000;
+    @include screen ("tablet") {
+      font-size: 35px;
+   }
+   @include screen ("phone") {
+    font-size: 25px;
+    left: 0;
+    top: -10vh;
+    
+ }
     
     &--animate {
       color: #fff;
@@ -441,6 +458,15 @@ ul {
       font-weight: 900;
       text-transform: uppercase;
       text-transform: uppercase;
+      @include screen ("tablet") {
+        font-size: 75px;
+     }
+     @include screen ("phone") {
+      font-size: 65px;  
+    }
+    @include screen ("smallPhone") {
+      font-size: 55px;  
+    }
       &:before {
         content: attr(data-text);
         position: absolute;
@@ -510,15 +536,24 @@ ul {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 600px;
+    // width: 600px;
   }
   &__title {
 
     @include sectionTitle(none, 22px);
     margin-bottom: 50px;
     font-weight: 400;
-    
+    padding: 0 200px;
     order: 2;
+    @include screen ("tablet") {
+      padding: 0 150px;
+   }
+   @include screen ("phone") {
+    padding: 0 50px;
+  }
+  @include screen ("smallPhone") {
+    padding: 0; 
+  }
  
     // font-family: 'Comfortaa', cursive;
   }
@@ -539,9 +574,13 @@ ul {
   &__items {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 50px; // font-family: 'Oswald', sans-serif;
     font-weight: 300;
     flex-wrap: wrap;
+    @include screen("tabletAndPhone") {
+      justify-content: center;
+    }
   }
   &__item {
     text-align: center;
@@ -549,6 +588,21 @@ ul {
     // letter-spacing: 1px;
     // line-height: 30px; 
     @include text;
+    @include screen("tablet"){
+      width: 50%;
+      padding: 0 40px;
+      
+    }
+    @include screen("phone"){
+      width: 100%;
+      padding: 0 30px;
+      
+    }
+    @include screen("smallPhone"){
+      width: 100%;
+      padding: 0;
+      
+    }
   }
   &__subtitle {
     @include sectionTitle(uppercase, 18px);
@@ -903,11 +957,13 @@ height: auto;
 }
 
 .form {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin-top: 50px;
  
   &__input {
     width: 100%;
+    
     height: 40px;
     margin: 3px 0 10px 0;
     background-color: #121839;
