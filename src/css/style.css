@@ -778,8 +778,9 @@ ul {
         margin: 35px 0 35px 0;
         text-align: center; } }
   .nav__link {
-    font-size: 18px;
-    font-weight: 700; }
+    font-size: 16px;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif; }
     .nav__link:hover {
       color: #fff; }
     .nav__link.active {
@@ -1020,18 +1021,11 @@ ul {
         -ms-flex-direction: column;
             flex-direction: column; }
   .about__title {
-    text-align: center;
-    line-height: 30px;
-    text-transform: none;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 2px;
-    font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    margin-top: 0;
+    text-align: center;
+    padding: 0 250px;
     margin-bottom: 50px;
     font-weight: 400;
-    padding: 0 200px;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2; }
@@ -1040,8 +1034,8 @@ ul {
         padding: 0 150px; } }
     @media all and (max-width: 767px) {
       .about__title {
-        padding: 0 50px;
-        font-size: 18px;
+        padding: 0 10px;
+        font-size: 20px;
         margin-bottom: 20px; } }
     @media all and (max-width: 393px) {
       .about__title {
@@ -1109,6 +1103,7 @@ ul {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 20px; }
@@ -1180,6 +1175,7 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 180px;
@@ -1277,6 +1273,7 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     letter-spacing: .5px; }
     @media all and (max-width: 767px) {
@@ -1299,6 +1296,7 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 180px;
@@ -1599,6 +1597,7 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 80px; }

@@ -57,6 +57,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     // font-family: 'Titillium Web', sans-serif;
     font-family: 'Exo 2', sans-serif;
+    
     // position: absolute;
     // height: 100%;
     // width: 100vw;
@@ -209,8 +210,9 @@ ul {
         }
     }
     &__link {
-        font-size: 18px;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 900;
+        font-family: 'Poppins', sans-serif;
         
         &:hover {
             color: #fff;
@@ -546,17 +548,20 @@ ul {
   }
   &__title {
 
-    @include sectionTitle(none, 22px);
+    // @include sectionTitle(none, 22px);
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    padding: 0 250px;
     margin-bottom: 50px;
     font-weight: 400;
-    padding: 0 200px;
+    
     order: 2;
     @include screen ("tablet") {
       padding: 0 150px;
    }
    @include screen ("phone") {
-    padding: 0 50px;
-    font-size: 18px;
+    padding: 0 10px;
+    font-size: 20px;
     margin-bottom: 20px;
   }
   @include screen ("smallPhone") {
