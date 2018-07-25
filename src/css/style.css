@@ -1103,7 +1103,6 @@ ul {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 20px; }
@@ -1175,7 +1174,6 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 180px;
@@ -1273,7 +1271,6 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     letter-spacing: .5px; }
     @media all and (max-width: 767px) {
@@ -1296,7 +1293,6 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 180px;
@@ -1597,7 +1593,6 @@ canvas {
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace;
     font-family: 'Exo 2', sans-serif;
-    font-family: 'Poppins', sans-serif;
     margin-top: 0;
     position: relative;
     margin-bottom: 80px; }
