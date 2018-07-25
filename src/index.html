@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="img/fav.ico">
+    <link rel="shortcut icon" href="img/favv.ico">
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono|Ubuntu:300,400&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono|Share+Tech+Mono|Ubuntu:300,400&amp;subset=latin-ext" rel="stylesheet">
@@ -32,7 +32,7 @@
            
                     <div class="nav__wrapper">
                         <div class="nav__logo">
-                            <a class='nav__logo-link' href=''>MR</a>
+                            <a class="nav__link" id="home" href="#home"> <img class="nav__logo-img" src="img/logo2.png" alt=""> </a>
                         </div>
 
                           <button aria-label="menu" class="nav__burger">
@@ -42,18 +42,21 @@
                                 <span></span>
                           </button> 
                     
-                        <ul class="nav__menu" id="navigation">
+                        <ul class="nav__menu" id="nav">
+                                <li class="nav__item">
+                                        <a href="#home" class="nav__link active">Home</a>
+                                    </li>
                             <li class="nav__item">
                                 <a href="#about" class="nav__link">O mnie</a>
                             </li>
                             <li class="nav__item">
-                                <a href="#services" class="nav__link">Umiejętności</a>
+                                <a href="#skills" class="nav__link">Umiejętności</a>
                             </li>
                             <li class="nav__item">
-                                <a href="#work" class="nav__link">Projekty</a>
+                                <a href="#projects" class="nav__link">Projekty</a>
                             </li>
                             <li class="nav__item">
-                                <a href="#blog" class="nav__link nav__link--blog">Kontakt</a>
+                                <a href="#contact" class="nav__link nav__link--blog">Kontakt</a>
                             </li>
                             
                         </ul>
@@ -69,7 +72,7 @@
         </h1>
         <div class="header__layer"></div>
     </header> 
-    <section class="about">
+    <section class="about" id="about">
 
         <div class="about__container">
             <header class="about__header">
@@ -86,22 +89,20 @@
             <div class="about__items">
                 <div class="about__item">
                     <h3 class="about__subtitle">Pasja</h3>
-                    <p class="about__text">  Moja przygoda z web-developmentem zaczęła się około pół roku temu i pochłonęła mnie bez reszty. Programowanie jest jedną
+                    <p class="about__text">  Moja przygoda z front-endem zaczęła się pół roku temu i pochłonęła mnie bez reszty. Programowanie jest jedną
                     z niewielu rzeczy, która potrafi wprowadzić mnie w stan 'flow' i sprawić, że świat wokół przestaje istnieć.</p>
                 </div>
 
                 <div class="about__item">
                     <h3 class="about__subtitle">Rozwój</h3>
                     <p class="about__text"> Nieustannie uczę się nowych rzeczy, a ucząc się próbuje zaimplementować je w swoich projektach. Uwielbiam stawiać sobie nowe
-                    wyzwania, udowadniając, że nawet najtrudniejsze z pozoru problemy, da się rozwiązać - tylko wymaga to
-                    czasu.</p>
+                    wyzwania i podążać za najnowszymi trendami.</p>
                 </div>
 
                 <div class="about__item">
                     <h3 class="about__subtitle">Cele</h3>
                     <p class="about__text"> Nieustannie uczę się nowych rzeczy, a ucząc się próbuje zaimplementować je w swoich projektach. Uwielbiam stawiać sobie nowe
-                        wyzwania, udowadniając, że nawet najtrudniejsze z pozoru problemy, da się rozwiązać - tylko wymaga to
-                        czasu.</p>
+                        wyzwania i podążać za najnowszymi trendami.</p>
                    
              
                     
@@ -114,7 +115,7 @@
         </div>
 
     </section>
-    <section class="skills">
+    <section class="skills" id="skills">
         <div class="skills__container">
 
             <h2 class="skills__title">Umiejętności</h2>
@@ -226,7 +227,7 @@
         </div>
 
     </section>
-    <section class="projects">
+    <section class="projects" id="projects">
         <div class="projects__container">
 
             <h2 class="projects__title">Projekty</h2>
@@ -235,7 +236,7 @@
                 <div class="projects__project project">
 
                     <div class="project__description">
-                        <div class="project__wrapper">
+                        <div class="project__description-wrapper">
                             <h3 class="project__title">Gra w Memory</h3>
                             <p class="project__text">Wykonana w czystym JavaScripcie gra w Memory, oferująca różne poziomy trudności. Czas rozgrywki każdego poziomu, zapisywany jest local storage, dzięki czemu użytkonik ma możliwość pobijania swoich rekordów oraz porównywania obecnego wyniku z poprzednim. </p>
                             <ul class="project__technologies">
@@ -247,9 +248,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="project__photo-container ">
+                    <div class="project__photo">
                         <div class="project__photo-wrapper pixelate">
-                        <img class="project__photo" src="img/memory-project.png" alt="">
+                        <img class="project__img" src="img/memory-project.png" alt="">
                         <div class="project__layer"></div>
                         <div class="project__hiddenText">
                             <!-- <div class="project__hiddenText"> -->
@@ -276,8 +277,9 @@
                 </div>
                 <div class="projects__project project">
 
-                        <div class="project__photo-container pixelate">
-                                <img class="project__photo" src="img/sudoku-project.png" alt="">
+                        <div class="project__photo">
+                                <div class="project__photo-wrapper pixelate">
+                                <img class="project__img" src="img/sudoku-project.png" alt="">
                                 <div class="project__layer"></div>
                                 <div class="project__hiddenText">
                                     <!-- <div class="project__hiddenText"> -->
@@ -294,7 +296,7 @@
                                         </div>
         
         
-        
+        </div>
                                     </div>
                                 </div>
                              
@@ -318,7 +320,7 @@
                     <div class="project__description">
                         <div class="project__wrapper">
                             <h3 class="project__title">Kanban Board</h3>
-                            <p class="project__text">Tablica, pomagająca w zarządzaniu bieżącymi zadaniami i projetkami. Projekt został napisany w obiektowym JavaScripcie, z użyciem biblioteki JQuery i JQuery UI, które umożliwiają przenoszenie elementów na stronie (drag'n'drop). Stan tablicy zapisywany jest w REST- owym API, dzięki czemu wszystkie kolumny i karteczki pozostają na miejscu, nawet po odświeżeniu strony. </p>
+                            <p class="project__text">Tablica, pomagająca w zarządzaniu bieżącymi zadaniami, napisana w obiektowym JavaScripcie, z użyciem bibliotek JQuery i JQuery UI, które udostępniają funkcję drag'n'drop. Stan tablicy zapisywany jest w REST- owym API, dzięki czemu wszystkie kolumny i karteczki pozostają na miejscu, nawet po odświeżeniu strony. </p>
                             <ul class="project__technologies">
                                 <li class="project__technology">JavaScript</li>
                                 <li class="project__technology">OOP</li>
@@ -327,8 +329,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="project__photo-container pixelate">
-                            <img class="project__photo" src="img/kanban-project.png" alt="">
+                    <div class="project__photo">
+                            <div class="project__photo-wrapper pixelate">
+                            <img class="project__img" src="img/kanban-project.png" alt="">
                             <div class="project__layer"></div>
                             <div class="project__hiddenText">
                                 <!-- <div class="project__hiddenText"> -->
@@ -344,7 +347,7 @@
                                         <!-- <p>Live</p> -->
                                     </div>
     
-    
+    </div>
     
                                 </div>
                             </div>
@@ -356,8 +359,9 @@
                 <div class="projects__project project">
 
               
-                        <div class="project__photo-container pixelate">
-                                <img class="project__photo" src="img/editor-project.png" alt="">
+                        <div class="project__photo">
+                                <div class="project__photo-wrapper pixelate">
+                                <img class="project__img" src="img/editor-project.png" alt="">
                                 <div class="project__layer"></div>
                                 <div class="project__hiddenText">
                                     <!-- <div class="project__hiddenText"> -->
@@ -373,7 +377,7 @@
                                             <!-- <p>Live</p> -->
                                         </div>
         
-        
+        </div>
         
                                     </div>
                                 </div>
@@ -407,8 +411,9 @@
                                     </div>
                                 </div>
 
-                            <div class="project__photo-container pixelate">
-                                    <img class="project__photo" src="img/github-project.png" alt="">
+                                <div class="project__photo">
+                                        <div class="project__photo-wrapper pixelate">
+                                    <img class="project__img" src="img/github-project.png" alt="">
                                     <div class="project__layer"></div>
                                     <div class="project__hiddenText">
                                         <!-- <div class="project__hiddenText"> -->
@@ -424,7 +429,7 @@
                                                 <!-- <p>Live</p> -->
                                             </div>
             
-            
+            </div>
             
                                         </div>
                                     </div>
@@ -437,8 +442,9 @@
                         <div class="projects__project project">
 
                              
-                                <div class="project__photo-container pixelate">
-                                        <img class="project__photo" src="img/stoper-project.png" alt="">
+                                <div class="project__photo">
+                                        <div class="project__photo-wrapper pixelate">
+                                        <img class="project__img" src="img/stoper-project.png" alt="">
                                         <div class="project__layer"></div>
                                         <div class="project__hiddenText">
                                             <!-- <div class="project__hiddenText"> -->
@@ -455,7 +461,7 @@
                                                 </div>
                 
                 
-                
+                </div>
                                             </div>
                                         </div>
                                      
@@ -490,8 +496,9 @@
                                         </div>
                 
 
-                                    <div class="project__photo-container pixelate">
-                                            <img class="project__photo" src="img/mogo-project.png" alt="">
+                                        <div class="project__photo">
+                                                <div class="project__photo-wrapper pixelate">
+                                            <img class="project__img" src="img/mogo-project.png" alt="">
                                             <div class="project__layer"></div>
                                             <div class="project__hiddenText">
                                                 <!-- <div class="project__hiddenText"> -->
@@ -508,7 +515,7 @@
                                                     </div>
                     
                     
-                    
+                    </div>
                                                 </div>
                                             </div>
                                          
@@ -519,8 +526,9 @@
                                 <div class="projects__project project">
 
                              
-                                        <div class="project__photo-container pixelate">
-                                                <img class="project__photo" src="img/mache-project.png" alt="">
+                                        <div class="project__photo">
+                                                <div class="project__photo-wrapper pixelate">
+                                                <img class="project__img" src="img/mache-project.png" alt="">
                                                 <div class="project__layer"></div>
                                                 <div class="project__hiddenText">
                                                     <!-- <div class="project__hiddenText"> -->
@@ -536,7 +544,7 @@
                                                             <!-- <p>Live</p> -->
                                                         </div>
                         
-                        
+                        </div>
                         
                                                     </div>
                                                 </div>
@@ -571,8 +579,9 @@
                                                 </div>
                         
         
-                                            <div class="project__photo-container pixelate">
-                                                    <img class="project__photo" src="img/top-project.png" alt="">
+                                                <div class="project__photo">
+                                                        <div class="project__photo-wrapper pixelate">
+                                                    <img class="project__img" src="img/top-project.png" alt="">
                                                     <div class="project__layer"></div>
                                                     <div class="project__hiddenText">
                                                         <!-- <div class="project__hiddenText"> -->
@@ -588,7 +597,7 @@
                                                                 <!-- <p>Live</p> -->
                                                             </div>
                             
-                            
+                            </div>
                             
                                                         </div>
                                                     </div>
@@ -610,7 +619,7 @@
 
 
     </section>
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="contact__container">
             <header class="contact__header">
             <h2 class="contact__title">Kontakt</h2>

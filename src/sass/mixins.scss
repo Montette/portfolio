@@ -57,6 +57,7 @@ $lightGrey: #f8f8f8;
 $violetBlue: #6767d8;
 $violetBlue: #6781d8;
 $lightBlue: #a7b0cf;
+$yellow: #d6b963;
 @mixin flexPosition($justify, $align) {
     display: flex;
     justify-content: $justify;
@@ -67,7 +68,16 @@ $lightBlue: #a7b0cf;
     max-width: 1200px;
     margin: 0 auto;
     // padding: 70px 0 90px 0;
-    padding: 60px 30px 90px 30px;
+    padding: 60px 30px 120px 30px;
+    @include screen ("tablet") {
+        padding: 50px 25px 60px 25px;
+    }
+    @include screen ("phone") {
+        padding: 50px 20px 60px 20px;
+    }
+    @include screen ("smallPhone") {
+        padding: 50px 15px 60px 15px;
+    }
 }
 
 @mixin underline ($width, $height, $top, $color) {
@@ -80,12 +90,17 @@ $lightBlue: #a7b0cf;
     transform: translateX(-50%);
     background-color: $color;
     display: block;
+    min-width: 47px;
 }
 
 @mixin text {
     letter-spacing: 1px;
     line-height: 28px; 
     font-size: 16px;
+    @include screen ("phone"){
+       font-size: 15px;
+       line-height: 26px;
+    }
 }
 
 @mixin paragraph {
@@ -113,6 +128,8 @@ $lightBlue: #a7b0cf;
     letter-spacing: 2px;
     font-family: 'Fira Mono', monospace; 
     font-family: 'Exo 2', sans-serif;
+    margin-top: 0;
+    
 }
 
 @mixin decorativeTitle {

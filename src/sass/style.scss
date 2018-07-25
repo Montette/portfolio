@@ -156,15 +156,16 @@ ul {
     &__wrapper {
         @include flexPosition(space-between, center);
         width: 100%;
-        max-width: 1300px;
+        max-width: 1400px;
         height: 100%;
+        padding: 0 40px;
         // width: 100%;
         position: relative;
         z-index: 1000;
         
-        @include screen ("tabletAndPhone") {
-            padding: 0 20px;
-        }
+        // @include screen ("tabletAndPhone") {
+        //     padding: 0 4px;
+        // }
     }
     &__menu {
         @include flexPosition(space-between, center);
@@ -215,20 +216,24 @@ ul {
             color: #fff;
         }
         &.active {
-            color: #f0d088;
-            border-bottom: 3px solid #f0d088;
-            padding-bottom: 10px;
+          color: #fff;
         }
         @include screen ("tabletAndPhone") {
             font-size: 23px;
          }
     }
     &__logo {
-        font-size: 30px;
-        font-weight: bold;
-        position: relative;
-        z-index: 10;
-        color: #d6b963;
+        // font-size: 30px;
+        // font-weight: bold;
+        // position: relative;
+        // z-index: 10;
+        // color: #d6b963;
+        
+    }
+    &__logo-img {
+      
+        width:90px;
+        height: 45px;
     }
   
 
@@ -258,7 +263,7 @@ ul {
   position: absolute;
   top: 50%;
   
-  right: 20px;
+  right: 40px;
   height: 36px;
   width: 60px;
   cursor: pointer;
@@ -271,7 +276,7 @@ ul {
   & span {
     display: block;
     position: absolute;
-    height: 6px;
+    height: 5px;
     width: 100%;
     background: $lightBlue;
     border-radius: 9px;
@@ -293,15 +298,15 @@ ul {
 }
 
 .nav__burger span:nth-child(2),.nav__burger span:nth-child(3) {
-  top: 16px;
+  top: 15px;
 }
 
 .nav__burger span:nth-child(4) {
-  top: 32px;
+  top: 30px;
 }
 
 .nav__burger.open span:nth-child(1) {
-  top: 16px;
+  top: 15px;
   width: 0%;
   left: 50%;
 }
@@ -315,7 +320,7 @@ ul {
 }
 
 .nav__burger.open span:nth-child(4) {
-  top: 18px;
+  top: 15px;
   width: 0%;
   left: 50%;
 }
@@ -425,7 +430,7 @@ ul {
     // font-family: 'Share Tech Mono', monospace;
     // font-family: 'PT Mono', monospace;
     font-family: 'VT323', monospace;
-    font-family: 'Exo 2', sans-serif;
+    // font-family: 'Exo 2', sans-serif;
     font-weight: 700;
     
     // font-family: 'Poppins', sans-serif;
@@ -435,10 +440,10 @@ ul {
     // width: 800px;
     z-index: 10000;
     @include screen ("tablet") {
-      font-size: 35px;
+      font-size: 40px;
    }
    @include screen ("phone") {
-    font-size: 25px;
+    font-size: 35px;
     left: 0;
     top: -10vh;
     
@@ -446,7 +451,7 @@ ul {
     
     &--animate {
       color: #fff;
-      font-size: 85px;
+      font-size: 65px;
       position: relative;
       font-family: 'Poppins', sans-serif; // font-family: "SFPixelate-Bold";
       
@@ -454,18 +459,19 @@ ul {
       // font-family: "LCD_Solid";
       // font-family: 'Exo 2', sans-serif; 
       // font-family: 'Black Han Sans', sans-serif;
+     
       z-index: 10000;
       font-weight: 900;
       text-transform: uppercase;
       text-transform: uppercase;
       @include screen ("tablet") {
-        font-size: 75px;
+        font-size: 60px;
      }
      @include screen ("phone") {
-      font-size: 65px;  
+      font-size: 55px;  
     }
     @include screen ("smallPhone") {
-      font-size: 55px;  
+      font-size: 50px;  
     }
       &:before {
         content: attr(data-text);
@@ -475,7 +481,7 @@ ul {
         width: 100%;
         height: 110%;
         left: 1px;
-        text-shadow: -3px 0 #ffd632;
+        text-shadow: -3px 0 $yellow;
         clip: rect(24px, 550px, 90px, 0);
         animation: glitch-anim-2 6s infinite linear alternate-reverse;
       }
@@ -486,7 +492,7 @@ ul {
         width: 100%;
         height: 110%;
         left: -1px;
-        text-shadow: -3px 0 rgb(22, 25, 209);
+        text-shadow: -3px 0 #7c8dca;;
         // text-shadow: -3px 0 rgb(247, 68, 36);
         // text-shadow: -3px 0 $lightBlue;
         clip: rect(85px, 550px, 140px, 0); // color: #212196;
@@ -528,7 +534,7 @@ ul {
     align-items: center;
     flex-direction: column;
     // clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
-    padding-bottom: 350px;
+  //  padding-bottom: 150px;
     min-height: 100vh;
   }
   &__header {
@@ -550,9 +556,11 @@ ul {
    }
    @include screen ("phone") {
     padding: 0 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
   @include screen ("smallPhone") {
-    padding: 0; 
+    padding: 0 5px; 
   }
  
     // font-family: 'Comfortaa', cursive;
@@ -574,7 +582,7 @@ ul {
   &__items {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     margin-top: 50px; // font-family: 'Oswald', sans-serif;
     font-weight: 300;
     flex-wrap: wrap;
@@ -588,6 +596,7 @@ ul {
     // letter-spacing: 1px;
     // line-height: 30px; 
     @include text;
+    font-weight: 300;
     @include screen("tablet"){
       width: 50%;
       padding: 0 40px;
@@ -596,6 +605,7 @@ ul {
     @include screen("phone"){
       width: 100%;
       padding: 0 30px;
+      margin-bottom: 30px;
       
     }
     @include screen("smallPhone"){
@@ -654,15 +664,38 @@ height: auto;
   /* background-color: rgba(255, 255, 233, 0.658); */
   &__container {
     @include container;
+    max-width: 1100px;
+    @include screen ("tabletAndPhone"){
+      padding-bottom: 60px;
+    }
+    // @include screen ("phone"){
+    //   font-size: 28px;
+    //   margin-bottom: 120px;
+    // }
   }
   
   &__title {
     @include sectionTitle (none, 35px);
     position: relative;
     margin-bottom: 180px;
+    margin-top: 0;
+  
+    
+    @include screen ("tablet"){
+      font-size: 30px;
+    }
+    @include screen ("phone"){
+      font-size: 28px;
+      margin-bottom: 120px;
+    }
     
     &::after {
-      @include underline(10%, 5px, 150%, $violetBlue);
+      @include underline(15%, 5px, 150%, $violetBlue);
+      // @include screen ("tabletAndPhone"){
+      //   height: 4px;
+      //   width: 8%;
+      // }
+     
     }
 
   }
@@ -673,6 +706,14 @@ height: auto;
     margin-bottom: 100px;
     display: flex;
     flex-direction: column;
+    &:last-child {
+      margin-bottom: 20px;
+    }
+    @include screen ("phone"){
+      margin-bottom: 80px;
+    }
+    
+   
   }
   
   &__description {
@@ -683,7 +724,13 @@ height: auto;
     position: relative;
     &::after {
       @include underline(80%, 1px, 120%, #ced3ff);
+      @include screen ("phone"){
+        top: 110%;
+      }
     }
+    // @include screen ("phone"){
+    //   text-align: left;
+    // }
     
   }
   &__strong {
@@ -702,11 +749,21 @@ height: auto;
     // width: 150px;
     margin: 0 40px;
     text-align: center;
+    @include screen ("phone"){
+      margin: 0 20px 20px 20px;
+      
+    }
   
   }
   &__icon {
     width: 130px;
     height: 130px;
+    @include screen ("phone"){
+      width: 90px;
+      height: 90px;
+      
+      
+    }
   }
   &__title {
     color: $violetBlue;
@@ -716,7 +773,11 @@ height: auto;
     // font-family: 'Exo 2', sans-serif;
     @include sectionTitle(none, 20px);
     letter-spacing: .5px;
+    @include screen ("phone"){
+      margin-top: 0;
+    }
   }
+  
 }
 
 
@@ -739,6 +800,14 @@ height: auto;
     @include sectionTitle (none, 35px);
     position: relative;
     margin-bottom: 180px;
+    margin-top: 0;
+    @include screen ("tablet"){
+      font-size: 30px;
+    }
+    @include screen ("phone"){
+      font-size: 28px;
+      margin-bottom: 120px;
+    }
     
     &::after {
       @include underline(10%, 5px, 150%, $violetBlue);
@@ -746,12 +815,16 @@ height: auto;
   }
   &__container {
     @include container;
-    padding-top: 120px;
+    
     max-width: 1400px;
     
     
     
     min-height: 100vh;
+    @include screen ("tablet"){
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
   &__content {
     display: flex;
@@ -767,25 +840,69 @@ height: auto;
   display: flex;
   width: 90%;
   color: #585858;
+  flex-wrap: wrap;
+  position: relative;
  
-  &__description {
-    width: 50%;
+  // &__description {
+  //   width: 50%;
+  //   padding-left: 20px;
+  //   padding: 10px;
+  //   text-align: left;
+  // }
+  @include screen ("tablet"){
+    margin-bottom: 40px;
   }
-  &__photo-container{
+  @include screen ("phone"){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 110px;
+    &:last-child{
+      margin-bottom: 20px;;
+    }
+  }
+  
+  &__photo{
     width: 50%;
    
     position: relative;
+    @include flexPosition (center,center);
+    @include screen ("tabletAndPhone") {
+      // width: 100%;
+    }
     &:hover  .project__hiddenText {
       transform: translate(-50%, -50%) scale(1);
     }
+    @include screen ("phone"){
+      width: 90%;
+      order: 1;
+    }
+    @include screen ("smallPhone") {
+      width: 100%;
+  }
+    
     
   }
   &__title {
     margin: 0 0 30px 0;
     // color: $violetBlue;
+    @include screen ("tablet"){
+      margin-bottom: 10px;
+      // font-size: 17px;
+    }
+    @include screen ("phone"){
+     position: absolute;
+     top: -50px;
+     left: 50%;
+     width: 100%;
+     text-align: center;
+     transform: translateX(-50%);
+     font-size: 17px;
+     line-height: 20px;
+    }
     
   }
-  &__photo {
+  &__img{
     max-width: 100%;
     height: auto;
     width: 100%;
@@ -799,37 +916,55 @@ height: auto;
     position: relative;
   }
   &__description {
- 
+    width: 50%;
+    padding: 10px 20px;
+    text-align: left;
     display: flex;
     justify-content: center;
     align-items: center;
     @include text;
- 
-    // border-bottom: 6px solid $violetBlue;
-    // border-top: 4px solid $violetBlue;
-    &--withoutBorder{
-      border: none;
+    @include screen ("phone"){
+      width: 100%;
+      order: 2;
+      text-align: center;
+    }
+    @media only screen and (max-width: 510px){
+      padding: 10px 0;
     }
  
+ 
+  }
+  &__text {
+    @include screen("tablet"){
+      margin-top: 0;
+    }
   }
   &__wrapper {
-    padding-left: 20px;
-    
-    text-align: left;
+    // padding-left: 20px;
+    // padding: 10px;
+    // text-align: left;
   }
   &__technologies {
     margin: 40px 0 0 0;
     padding: 0;
+    @include screen ("tabletAndPhone"){
+      margin-top: 10px;
+    }
   }
   &__technology {
     display: inline-block;
     background-color: $violetBlue;
     background-color: rgb(214, 186, 29);
-    background-color: #d6b963;
+    background-color: $yellow;
     color: #fff;
     padding: 5px 4px;
     border-radius: 2px;
     box-shadow: 1px 1px 16px rgba(0,0,0,0.2);
+    @include screen ("tabletAndPhone"){
+      margin-bottom: 4px;
+      font-size: 14px;
+      padding: 2px 4px;
+    }
   }
   &__layer {
     position: absolute;
@@ -941,6 +1076,13 @@ height: auto;
     &::after {
       @include underline(10%, 5px, 150%, $violetBlue);
     }
+    @include screen ("tablet"){
+      font-size: 30px;
+    }
+    @include screen ("phone"){
+      font-size: 28px;
+      margin-bottom: 120px;
+    }
 
   }
   
@@ -995,15 +1137,15 @@ height: auto;
     width: 180px;
     margin: 20px auto 0 auto;
     background-color: transparent;
-    color: #d6b963;
-    border: 2px solid #d6b963;
+    color: $yellow;
+    border: 2px solid $yellow;
     padding: 15px 5px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 14px;
     transition: .3s;
     &:hover {
-      background-color: #d6b963;
+      background-color: $yellow;
       color: #121839;
       border: 2px solid #121839;
       cursor: pointer;
