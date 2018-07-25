@@ -121,16 +121,16 @@ Images.prototype.reportLoad = function() {
 
 
             this.element.addEventListener('mouseenter', function(event) {
+                // obj.mouseOver();
 
-
-                if(event.target.classList.contains('project__photo-container')) {
-                    console.log('mouseover')
-                obj.mouseOver();
-                setTimeout(() => {
+                // if(event.target.classList.contains('project__photo-container')) {
+                //     console.log('mouseover')
+                // obj.mouseOver();
+                // setTimeout(() => {
             
                 //   obj.canvas.style.opacity='0';
                 //   document.querySelector(` .${event.target.classList[0]} .project__hiddenText`).style.opacity = '.8';
-                  console.log(obj.element.children[2]);
+                //   console.log(obj.element.children[2]);
 
                 //   obj.element.children[2].style.opacity = '.8';
 
@@ -139,12 +139,12 @@ Images.prototype.reportLoad = function() {
 
                 //   obj.mouseOut();
                   
-                }, 300);
+            //     }, 300);
 
 
-            } else {
-                obj.mouseOver();
-            }
+            // } else {
+            //     obj.mouseOver();
+            // }
 
                 console.log(event.target);
               console.log(event.target.parentElement)  ;
@@ -157,8 +157,8 @@ Images.prototype.reportLoad = function() {
     this.element.addEventListener('mouseleave', function() {
         console.log(event.target);
               console.log(event.target.parentElement)  ;
-
-        if(event.target.classList.contains('project__photo-container')) {
+            //   obj.mouseOut();
+        // if(event.target.classList.contains('project__photo-container')) {
     // obj.mouseOver();
     // obj.canvas.style.opacity='.5';
     // document.querySelector('.project__hiddenText').style.opacity = '0';
@@ -178,13 +178,13 @@ console.log('1')
 
 
 
-        obj.mouseOut();
+        // obj.mouseOut();
     // }, 500);
 
-} else {
-    obj.mouseOut();
-    console.log('2')
-}
+// } else {
+//     obj.mouseOut();
+//     console.log('2')
+// }
 
 
     }, false);

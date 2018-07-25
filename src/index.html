@@ -28,15 +28,47 @@
         <span class="preloader__label">Trwa ładowanie strony</span>
     </div>
 
-    <nav class="nav"></nav>
-    <header class="header">
-        <h1 class="header__title"> My name is
+    <nav class="nav">
+           
+                    <div class="nav__wrapper">
+                        <div class="nav__logo">
+                            <a class='nav__logo-link' href=''>MR</a>
+                        </div>
+
+                          <button aria-label="menu" class="nav__burger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                          </button> 
+                    
+                        <ul class="nav__menu" id="navigation">
+                            <li class="nav__item">
+                                <a href="#about" class="nav__link">O mnie</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#services" class="nav__link">Umiejętności</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#work" class="nav__link">Projekty</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#blog" class="nav__link nav__link--blog">Kontakt</a>
+                            </li>
+                            
+                        </ul>
+                   
+                    </div>
+               
+    </nav>
+   <header class="header">
+        <!-- <h1 class="header__title"> My name is
             <br>
             <span data-text="Monika" class="header__title--animate">Monika</span>
             <br> I'm a Front-End developer
-        </h1>
+        </h1> -->
         <div class="header__layer"></div>
-    </header>
+    </header> 
     <section class="about">
 
         <div class="about__container">
@@ -213,7 +245,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="project__photo-container pixelate">
+                    <div class="project__photo-container ">
+                        <div class="project__photo-wrapper pixelate">
                         <img class="project__photo" src="img/memory-project.png" alt="">
                         <div class="project__layer"></div>
                         <div class="project__hiddenText">
@@ -233,6 +266,7 @@
 
 
                             </div>
+                        </div>
                         </div>
                      
                     </div>
@@ -583,6 +617,8 @@
         </header>
             <form action="https://formspree.io/monika.radosiewicz@gmail.com"
             method="POST" class="contact__form form">
+            <!-- <form action=""
+             class="contact__form form"> -->
                 <label for="name" class="form__label" name="name">
                     Imię
                 </label>
@@ -612,6 +648,11 @@
 
         <div class="layer aa"></div> -->
     </section>
+    <footer class="footer">
+        <div class="footer__icons"><i class="fab fa-linkedin footer__icon"></i>
+            <i class="fab fa-github footer__icon"></i></div>
+        <p class="footer__text">© 2018 Monika Radosiewicz</p>
+    </footer>
 
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
@@ -623,6 +664,7 @@
     <script src="js/pixelate.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/form.js"></script>
+    <script src="js/navigation.js"></script>
 
 </body>
 
