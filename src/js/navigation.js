@@ -94,17 +94,57 @@ menuButton.addEventListener('click', ()=> {
 })
 
 document.querySelectorAll('.project__photo').forEach(project => {
-    project.addEventListener('keypress', event=> {
-        if (event.key === " " || event.key === "Enter") {
-            console.log(project.children[0].children[2])
-            project.children[0].children[2].classList.toggle('visibleText')
-        }
-    })
+    // project.addEventListener('keypress', event=> {
+    //     if (event.key === " " || event.key === "Enter") {
+    //         console.log(project.children[0].children[2])
+    //         project.children[0].children[2].classList.toggle('visibleText')
+    //     }
+    // })
 
     // project.addEventListener('blur', event=> {
-       
+    //         console.log(project.querySelector('a'));
+    //         if(!project.querySelectorAll('a')[0] !== document.activeElement && project.querySelectorAll('a')[1] !== document.activeElement) {
     //         console.log(project.children[0].children[2])
     //         project.children[0].children[2].classList.remove('visibleText')
+    //         }
         
     // })
+
+
+    // project.querySelectorAll('a').forEach(a => {
+
+    //     a.addEventListener('blur', ()=> {
+    //         if(project !== document.activeElement && project.querySelectorAll('a')[0] !== document.activeElement && project.querySelectorAll('a')[1] !== document.activeElement) {
+    //             console.log('NOT!!!!')
+    //             console.log(project.querySelectorAll('a')[0] )
+    //             console.log(project.querySelectorAll('a')[1] )
+    //                 project.children[0].children[2].classList.remove('visibleText')
+    //                 }
+
+    //         if(project !== document.activeElement && a !== document.activeElement ) {
+    //             console.log('NOT!!!!')
+    //                 project.children[0].children[2].classList.remove('visibleText')
+    //                 }
+        
+    //         if(!project.focus() && !project.querySelectorAll('a')[0].focus() && !project.querySelectorAll('a')[1].focus()) {
+    //             console.log('NOT!!!!')
+    //                 project.children[0].children[2].classList.remove('visibleText')
+    //                 }
+
+
+    //     })
+
+    // })
+
+
+    project.addEventListener('focus', event => {
+        document.querySelectorAll('.project__photo').forEach(project=> {
+            project.children[0].children[2].classList.remove('visibleText')
+        })
+
+        project.children[0].children[2].classList.add('visibleText')
+
+    })
+          
+
 })

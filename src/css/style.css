@@ -1389,8 +1389,8 @@ canvas {
         -ms-flex-align: center;
             align-items: center; }
     .project__photo:hover .project__hiddenText {
-      -webkit-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1); }
+      width: 80%;
+      opacity: .7; }
     @media all and (max-width: 767px) {
       .project__photo {
         width: 90%;
@@ -1507,10 +1507,12 @@ canvas {
     height: 80%;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%) scale(0);
-            transform: translate(-50%, -50%) scale(0);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 0;
     background-color: #6781d8;
     opacity: .7;
+    opacity: 0;
     z-index: 6;
     -webkit-transition: .6s;
     transition: .6s;
@@ -1532,12 +1534,10 @@ canvas {
     display: -ms-flexbox;
     display: flex;
     color: #fff; }
-  .project__svg {
-    height: 50px;
-    width: 50px;
+  .project__link {
     margin: 0 10px; }
-    .project__svg--link {
-      height: 35px; }
+    .project__link:focus > .project__icon {
+      color: #d6b963; }
 
 .projects canvas {
   border: 1px solid #EFEFEF;
@@ -1713,6 +1713,10 @@ canvas {
     margin: 0 5px;
     font-size: 30px; }
     .footer__icon:hover {
+      color: #fff; }
+  .footer__link {
+    outline: none; }
+    .footer__link:focus > .footer__icon {
       color: #fff; }
 
 .twinkling.aa {
