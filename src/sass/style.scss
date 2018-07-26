@@ -275,6 +275,9 @@ ul {
   transition: .5s ease-in-out;
   outline: none;
   display: none;
+  &:focus > span {
+    background-color: #fff;
+  }
   & span {
     display: block;
     position: absolute;
@@ -1018,6 +1021,9 @@ height: auto;
     justify-content: center;
     align-items: center;
     // transform: scale(0);
+    &.visibleText {
+      transform: translate(-50%, -50%) scale(1);
+    }
 
   }
   &__icons {
@@ -1025,6 +1031,15 @@ height: auto;
     display: flex;
     color: #fff;
     
+  }
+  &__svg {
+    height: 50px;
+    width: 50px;
+    margin: 0 10px;
+    &--link {
+      height: 35px;
+      // width: 50px;
+    }
   }
 }
 

@@ -807,6 +807,8 @@ ul {
   transition: .5s ease-in-out;
   outline: none;
   display: none; }
+  .nav__burger:focus > span {
+    background-color: #fff; }
   .nav__burger span {
     display: block;
     position: absolute;
@@ -1521,12 +1523,21 @@ canvas {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+    .project__hiddenText.visibleText {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+              transform: translate(-50%, -50%) scale(1); }
   .project__icons {
     font-size: 45px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     color: #fff; }
+  .project__svg {
+    height: 50px;
+    width: 50px;
+    margin: 0 10px; }
+    .project__svg--link {
+      height: 35px; }
 
 .projects canvas {
   border: 1px solid #EFEFEF;

@@ -30,7 +30,7 @@
                             <a class="nav__link" id="home" href="#home"> <img class="nav__logo-img" src="img/logo2.png" alt=""> </a>
                         </div>
 
-                          <button aria-label="menu" class="nav__burger">
+                          <button aria-label="otwórz menu" class="nav__burger">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -227,7 +227,7 @@
             <h2 class="projects__title">Projekty</h2>
             <div class="projects__content">
 
-                <div class="projects__project project">
+                <div class="projects__project project" >
 
                     <div class="project__description">
                         <div class="project__description-wrapper">
@@ -242,7 +242,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="project__photo">
+                    <div class="project__photo" tabindex="0">
                         <div class="project__photo-wrapper pixelate">
                         <img class="project__img" src="img/memory-project.png" alt="">
                         <div class="project__layer"></div>
@@ -250,15 +250,15 @@
                             <!-- <div class="project__hiddenText"> -->
 
                             <div class="project__icons">
-                                <div class="project__icon">
-                                    <i class="fab fa-github"></i>
+                                <!-- <div class="project__icon"> -->
+                                 <a href="https://github.com/Montette/Memory-Game" target="blank"> <span class="fab fa-github project__icon" aria-label="link do GitHuba"></span></a> 
                                     <!-- <p>Kod</p> -->
-                                </div>
+                                <!-- </div> -->
 
-                                <div class="project__icon">
-                                    <i class="fas fa-link project-link"></i>
+                                <!-- <div class="project__icon"> -->
+                                 <a href="https://montette.github.io/Memory-Game"  target="blank">   <span class="fas fa-link project__icon" aria-label="wersja live"></span></a>
                                     <!-- <p>Live</p> -->
-                                </div>
+                                <!-- </div> -->
 
 
 
@@ -582,13 +582,15 @@
                             
                                                         <div class="project__icons">
                                                             <div class="project__icon">
-                                                                <i class="fab fa-github"></i>
+                                                                <!-- <i class="fab fa-github"></i> -->
                                                                 <!-- <p>Kod</p> -->
+                                                                <img class="project__svg project__svg--git"  src="img/git-icon.svg" alt="">
                                                             </div>
                             
                                                             <div class="project__icon">
-                                                                <i class="fas fa-link project-link"></i>
+                                                                <!-- <i class="fas fa-link project-link"></i> -->
                                                                 <!-- <p>Live</p> -->
+                                                                <img class="project__svg project__svg--link" src="img/link.svg" alt="">
                                                             </div>
                             
                             </div>

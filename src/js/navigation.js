@@ -76,4 +76,35 @@ menuButton.addEventListener('click', ()=> {
     menuButton.classList.toggle('open');
     navigationMenu.classList.toggle('visible-menu');
 
+    if(menuButton.classList.contains('open')) {
+        menuButton.setAttribute("aria-label", "zamknij menu");
+        menuButton.setAttribute("aria-expanded", "true");
+        document.querySelectorAll('.nav__link').forEach(link=> {
+            link.tabIndex = 0;
+        })
+        
+    } else {
+        menuButton.setAttribute("aria-label", "otwórz menu");
+        menuButton.setAttribute("aria-expanded", "false");
+        document.querySelectorAll('.nav__link').forEach(link=> {
+            link.tabIndex = -1;
+        })
+    }
+
+})
+
+document.querySelectorAll('.project__photo').forEach(project => {
+    project.addEventListener('keypress', event=> {
+        if (event.key === " " || event.key === "Enter") {
+            console.log(project.children[0].children[2])
+            project.children[0].children[2].classList.toggle('visibleText')
+        }
+    })
+
+    // project.addEventListener('blur', event=> {
+       
+    //         console.log(project.children[0].children[2])
+    //         project.children[0].children[2].classList.remove('visibleText')
+        
+    // })
 })
