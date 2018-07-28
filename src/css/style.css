@@ -729,6 +729,9 @@ ul {
     padding: 0 40px;
     position: relative;
     z-index: 1000; }
+    @media all and (max-width: 767px) {
+      .nav__wrapper {
+        padding: 0 5px; } }
   .nav__menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -825,6 +828,9 @@ ul {
   @media all and (max-width: 1199px) {
     .nav__burger {
       display: block; } }
+  @media all and (max-width: 767px) {
+    .nav__burger {
+      right: 10px; } }
 
 .nav__burger span:nth-child(1) {
   top: 0; }
@@ -924,7 +930,8 @@ ul {
       .header__title {
         font-size: 35px;
         left: 0;
-        top: -10vh; } }
+        top: -10vh;
+        text-align: center; } }
     .header__title--animate {
       color: #fff;
       font-size: 65px;
@@ -1164,7 +1171,10 @@ canvas {
     @media all and (max-width: 393px) {
       .skills__container {
         padding: 50px 15px 60px 15px; } }
-    @media all and (max-width: 1199px) {
+    @media all and (min-width: 768px) and (max-width: 1199px) {
+      .skills__container {
+        padding-bottom: 100px; } }
+    @media all and (max-width: 767px) {
       .skills__container {
         padding-bottom: 60px; } }
   .skills__title {
@@ -1625,7 +1635,7 @@ canvas {
     @media all and (max-width: 767px) {
       .contact__title {
         font-size: 28px;
-        margin-bottom: 120px; } }
+        margin-bottom: 100px; } }
   .contact__subtitle {
     font-weight: 700; }
   .contact__email-adress {
