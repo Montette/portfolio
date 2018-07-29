@@ -1238,6 +1238,18 @@ canvas {
       .icons__icon {
         width: 90px;
         height: 90px; } }
+    .icons__icon--gulp {
+      width: auto;
+      margin: 0 20px; }
+    .icons__icon--materialize {
+      height: 100px;
+      width: auto;
+      -webkit-transform: translateY(10px);
+              transform: translateY(10px);
+      margin-bottom: 30px; }
+      @media all and (max-width: 767px) {
+        .icons__icon--materialize {
+          height: 60px; } }
   .icons__title {
     color: #6781d8;
     text-align: center;

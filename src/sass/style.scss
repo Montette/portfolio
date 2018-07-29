@@ -529,6 +529,20 @@ canvas {
       width: 90px;
       height: 90px;
     }
+    &--gulp {
+      width: auto;
+      margin: 0 20px;
+    }
+    &--materialize {
+      height: 100px;
+      width: auto;
+      transform: translateY(10px);
+      margin-bottom: 30px;
+      @include screen ("phone") {
+        height: 60px;
+      }
+    }
+   
   }
   &__title {
     color: $violetBlue;
