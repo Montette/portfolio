@@ -614,6 +614,9 @@ template {
   padding: 0;
   border: 0; }
 
+html {
+  overflow-x: hidden; }
+
 body {
   background-color: #eeeeee;
   background-color: #f6f8ff;
@@ -874,7 +877,7 @@ ul {
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 4;
+    z-index: 3;
     opacity: .2;
     background: linear-gradient(-45deg, #0f0d2b, #646ed1, #18269c, #15346d);
     background-size: 400% 400%;
@@ -897,8 +900,8 @@ ul {
             animation: move-twink-back 200s linear infinite; }
   .header:after {
     background: transparent url(../img/clouds3.png) repeat top center;
-    z-index: 3;
-    opacity: .3;
+    z-index: 4;
+    opacity: .1;
     -webkit-animation: move-clouds-back 200s linear infinite;
             animation: move-clouds-back 200s linear infinite; }
   @media all and (max-width: 767px) {
@@ -915,7 +918,7 @@ ul {
   .header__title {
     display: inline-block;
     color: #fff;
-    font-size: 45px;
+    font-size: 50px;
     font-family: 'Poppins', sans-serif;
     font-family: 'VT323', monospace;
     font-weight: 700;
@@ -934,7 +937,7 @@ ul {
         text-align: center; } }
     .header__title--animate {
       color: #fff;
-      font-size: 65px;
+      font-size: 70px;
       position: relative;
       font-family: 'Poppins', sans-serif;
       z-index: 10000;
@@ -986,8 +989,7 @@ ul {
           animation: Gradient 12s ease infinite; }
 
 .about {
-  background-color: #fff;
-  width: 100vw; }
+  background-color: #fff; }
   .about__container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1005,7 +1007,8 @@ ul {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    min-height: 100vh; }
+    padding-top: 150px;
+    padding-bottom: 170px; }
     @media all and (min-width: 768px) and (max-width: 1199px) {
       .about__container {
         padding: 50px 25px 60px 25px; } }
@@ -1015,6 +1018,9 @@ ul {
     @media all and (max-width: 393px) {
       .about__container {
         padding: 50px 15px 60px 15px; } }
+    @media all and (max-width: 1199px) {
+      .about__container {
+        padding: 60px 30px 120px 30px; } }
   .about__header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1294,7 +1300,6 @@ canvas {
   color: blue; }
 
 .projects {
-  width: 100vw;
   background-color: #fff; }
   .projects__title {
     text-align: center;
@@ -1559,7 +1564,6 @@ canvas {
     border: none; }
 
 .contact {
-  width: 100vw;
   position: relative;
   color: #fff;
   background: #000 url(../img/stars-bcg.png) repeat top center; }
@@ -1571,8 +1575,8 @@ canvas {
     height: 100%;
     width: 100%;
     opacity: .5;
-    background: linear-gradient(-45deg, #0f0d2b, #646ed1, #18269c, #15346d);
-    background-size: 400% 400%;
+    background: linear-gradient(-45deg, #0f0d2b, #18269c, #15346d);
+    background-size: 1000% 200%;
     z-index: 2; }
   .contact__container {
     max-width: 1200px;
@@ -1702,7 +1706,6 @@ canvas {
 .footer {
   background-color: #0a1233;
   padding: 20px 0;
-  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

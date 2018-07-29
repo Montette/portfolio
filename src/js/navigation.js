@@ -20,7 +20,6 @@ window.addEventListener('scroll', ()=> {
         let sectionId = section.getAttribute('id');
         let topPosition = section.offsetTop - menuHeigh * 5;
         
-
         if ((topPosition) <= Math.round(window.scrollY)) {
 
             if (document.querySelector('.active') !== null) {

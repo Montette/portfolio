@@ -109,6 +109,7 @@ Images.prototype.reportLoad = function() {
     window.addEventListener('scroll', function() {
 
         if (obj.isInViewport() && scrolling) {
+           
             obj.mouseOut();
             scrolling = false;
             
@@ -123,7 +124,7 @@ Images.prototype.reportLoad = function() {
             this.element.addEventListener('mouseenter', function(event) {
 
 
-                if(event.target.classList.contains('about__photo-wrapper')) {
+                // if(event.target.classList.contains('about__photo-wrapper')) {
                     console.log('mouseover')
                 obj.mouseOver();
                 // setTimeout(() => {
@@ -151,7 +152,7 @@ Images.prototype.reportLoad = function() {
               console.log(obj.element);
 
         // obj.mouseOver();
-                }
+                // }
 
     }, false);
 
@@ -159,7 +160,7 @@ Images.prototype.reportLoad = function() {
         console.log(event.target);
               console.log(event.target.parentElement)  ;
 
-        if(event.target.classList.contains('about__photo-wrapper')) {
+        // if(event.target.classList.contains('about__photo-wrapper')) {
     // obj.mouseOver();
     // obj.canvas.style.opacity='.5';
     // document.querySelector('.project__hiddenText').style.opacity = '0';
@@ -185,7 +186,7 @@ console.log('1')
 // } else {
 //     obj.mouseOut();
 //     console.log('2')
-}
+// }
 
 
     }, false);
