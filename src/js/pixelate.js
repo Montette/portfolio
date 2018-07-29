@@ -1,316 +1,197 @@
+// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel 
+// MIT license
 
-
-// requestAnimationFrame polyfill by Erik Möller. 
 
 var lastTime = 0;
 var vendors = ['webkit', 'moz'];
-for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
     window.cancelAnimationFrame =
-      window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+        window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
 }
 
 if (!window.requestAnimationFrame)
-    window.requestAnimationFrame = function(callback, element) {
+    window.requestAnimationFrame = function (callback, element) {
         var currTime = new Date().getTime();
         var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-          timeToCall);
+        var id = window.setTimeout(function () {
+                callback(currTime + timeToCall);
+            },
+            timeToCall);
         lastTime = currTime + timeToCall;
         return id;
     };
 
 if (!window.cancelAnimationFrame)
-    window.cancelAnimationFrame = function(id) {
+    window.cancelAnimationFrame = function (id) {
         clearTimeout(id);
     };
 
 
 var lastTime = 0;
 var vendors = ['webkit', 'moz'];
-for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
     window.cancelAnimationFrame =
-      window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+        window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
 }
 
 if (!window.requestAnimationFrame)
-    window.requestAnimationFrame = function(callback, element) {
+    window.requestAnimationFrame = function (callback, element) {
         var currTime = new Date().getTime();
         var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-          timeToCall);
+        var id = window.setTimeout(function () {
+                callback(currTime + timeToCall);
+            },
+            timeToCall);
         lastTime = currTime + timeToCall;
         return id;
     };
 
 if (!window.cancelAnimationFrame)
-    window.cancelAnimationFrame = function(id) {
+    window.cancelAnimationFrame = function (id) {
         clearTimeout(id);
     };
 
 
-    // end of  requestAnimationFrame polyfill 
+// end of requestAnimationFrame polyfill 
 
 
 
 
-var PIXELATION = 15;
+const maxPixelation = 15;
 
-var items = document.querySelectorAll('.pixelate'),
-    _objs = [];
+const items = document.querySelectorAll('.pixelate'),
+objects = [];
 
-var Images = function( element, image, canvas, context ) {
-    this.element    = element;
-    this.image      = image;
-    this.canvas     = canvas;
-    this.context    = context;
-    this.pixelation = 1;
-}
-
-Images.prototype.bindLoad = function() {
-    var obj = this;
-
-    this.image.onload = function() {
-        obj.reportLoad.call(obj);
-    };
-
-  if ( this.image.complete ) {
-        this.image.onload();
+class Images {
+    constructor(element, image, canvas, context) {
+        this.element = element;
+        this.image = image;
+        this.canvas = canvas;
+        this.context = context;
+        this.pixelation = 1;
     }
-}
-
-// Images.prototype.reportLoad = function() {
-//     var obj = this;
-
-//     this.imageWidth    = this.canvas.width   = this.image.width;
-//     this.imageHeight   = this.canvas.height  = this.image.height;
-//     this.context.drawImage( this.image, 0, 0 );
-
-//     this.element.addEventListener('mouseover', function() {
-//         obj.mouseOver();
-//     }, false);
-
-//     this.element.addEventListener('mouseout', function() {
-//         obj.mouseOut();
-//     }, false);
-// }
-
-
-
-Images.prototype.reportLoad = function() {
-    var obj = this;
-
-    this.imageWidth    = this.canvas.width   = this.image.naturalWidth;
-    this.imageHeight   = this.canvas.height  = this.image.naturalHeight;
-    this.context.drawImage( this.image, 0, 0 );
-    obj.mouseOver();
-    let scrolling = true;
-    window.addEventListener('scroll', function() {
-
-        if (obj.isInViewport() && scrolling) {
-           
-            obj.mouseOut();
-            scrolling = false;
-            
-
-        } 
-
-
-    }, false);
-
-
-
-            this.element.addEventListener('mouseenter', function(event) {
-
-
-                // if(event.target.classList.contains('about__photo-wrapper')) {
-                    console.log('mouseover')
-                obj.mouseOver();
-                // setTimeout(() => {
-            
-                //   obj.canvas.style.opacity='0';
-                //   document.querySelector(` .${event.target.classList[0]} .project__hiddenText`).style.opacity = '.8';
-                  console.log(obj.element.children[2]);
-
-                //   obj.element.children[2].style.opacity = '.8';
-
-                //   obj.element.children[2].style.transform = 'translate(-50%, -50%) scale(1)';
-                 
-
-                //   obj.mouseOut();
-                  
-                // }, 300);
-
-
-            // } else {
-            //     obj.mouseOver();
-            // }
-
-                console.log(event.target);
-              console.log(event.target.parentElement)  ;
-              console.log(obj.element);
-
-        // obj.mouseOver();
-                // }
-
-    }, false);
-
-    this.element.addEventListener('mouseleave', function() {
-        console.log(event.target);
-              console.log(event.target.parentElement)  ;
-
-        // if(event.target.classList.contains('about__photo-wrapper')) {
-    // obj.mouseOver();
-    // obj.canvas.style.opacity='.5';
-    // document.querySelector('.project__hiddenText').style.opacity = '0';
-
-    // obj.element.children[2].style.opacity = '0';
-
-    // obj.element.children[2].style.transform = 'translate(-50%, -50%) scale(0)';
-    // obj.element.children[2].style.width = '0';
-    //               obj.element.children[2].style.height = '0';
-
-    // setTimeout(() => {
-console.log('1')
-    
-    // obj.canvas.style.opacity='1';
-
-
-
-
-
-        obj.mouseOut();
-    // }, 500);
-
-// } else {
-//     obj.mouseOut();
-//     console.log('2')
-// }
-
-
-    }, false);
-
-
-
-
-
-
-
-    // this.element.addEventListener('mouseout', function() {
-    //     obj.mouseOut();
-    // }, false);
-
-   
-
-
-}
-
-Images.prototype.isInViewport = function() {
-    var obj = this;
-    var bounding = this.image.getBoundingClientRect();
-    return (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-
-
-Images.prototype.mouseOver = function() {
-    var obj = this;
-    cancelAnimationFrame( obj.idUndraw );
-    var draw = function() {
-        if ( obj.pixelation >= PIXELATION ) {
-            cancelAnimationFrame( obj.idDraw );
-            obj.pixelation = PIXELATION;
-        } else {
-            obj.context.drawImage( obj.image, 0, 0, obj.imageWidth, obj.imageHeight, 0, 0, obj.imageWidth, obj.imageHeight);
-            obj.pixelate( obj.imageWidth, 0, 0, obj.imageHeight );
-            obj.idDraw = requestAnimationFrame( draw, obj.context );
+    startLoad() {
+        this.image.onload = () => {
+            this.reportLoad();
         }
-    };
-    obj.idDraw = requestAnimationFrame( draw, obj.context );
-}
-
-Images.prototype.mouseOut = function() {
-    var obj = this;
-    cancelAnimationFrame( obj.idDraw );
-    var undraw = function() {
-        if ( obj.pixelation < 1 ) {
-            cancelAnimationFrame( obj.idUndraw );
-            obj.pixelation = 1;
-        } else {
-            obj.context.drawImage( obj.image, 0, 0 );
-            obj.depixelate( obj.imageWidth, obj.imageHeight, 0, 0 );
-            obj.idUndraw = requestAnimationFrame( undraw, obj.context );
+        if (this.image.complete) {
+            this.image.onload()
         }
-    };
-    obj.idUndraw = requestAnimationFrame( undraw, obj.context );
-}
+    }
 
-Images.prototype.setPixels = function() {
-    var sw          = this.imageWidth,
-        sh          = this.imageHeight,
-        imageData   = this.context.getImageData( 0, 0, sw, sh ),
-        data        = imageData.data,
-        y, x, n, m;
+    reportLoad() {
+        this.imageWidth = this.canvas.width = this.image.naturalWidth;
+        this.imageHeight = this.canvas.height = this.image.naturalHeight;
+        this.context.drawImage(this.image, 0, 0);
+        this.mouseEnter();
+        let scrolling = true;
+        window.addEventListener('scroll', () => {
+            if (this.isInViewport() && scrolling) {
+                this.mouseLeave();
+                scrolling = false;
+            }
+        }, false);
 
-    for ( y = 0; y < sh; y += this.pixelation ) {
-        for ( x = 0; x < sw; x += this.pixelation ) {
+        this.element.addEventListener('mouseenter', () => {
+            this.mouseEnter();
+        }, false);
 
-            var red = data[((sw * y) + x) * 4];
-            var green = data[((sw * y) + x) * 4 + 1];
-            var blue = data[((sw * y) + x) * 4 + 2];
+        this.element.addEventListener('mouseleave', () => {
+            this.mouseLeave();
 
-            for ( n = 0; n < this.pixelation; n++ ) {
-                for ( m = 0; m < this.pixelation; m++ ) {
-                    if ( x + m < sw ) {
-                        data[((sw * (y + n)) + (x + m)) * 4] = red;
-                        data[((sw * (y + n)) + (x + m)) * 4 + 1] = green;
-                        data[((sw * (y + n)) + (x + m)) * 4 + 2] = blue;
+        }, false);
+
+    }
+
+    isInViewport() {
+        let bounding = this.image.getBoundingClientRect();
+        return (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    mouseEnter() {
+        cancelAnimationFrame(this.idUndraw);
+        const draw = () => {
+            if (this.pixelation >= maxPixelation) {
+                cancelAnimationFrame(this.idDraw);
+                this.pixelation = maxPixelation;
+            } else {
+                this.context.drawImage(this.image, 0, 0, this.imageWidth, this.imageHeight, 0, 0, this.imageWidth, this.imageHeight);
+                this.pixelate(this.imageWidth, 0, 0, this.imageHeight);
+                this.idDraw = requestAnimationFrame(draw, this.context);
+            }
+        };
+        this.idDraw = requestAnimationFrame(draw, this.context);
+    }
+
+    mouseLeave() {
+        cancelAnimationFrame(this.idDraw);
+        const undraw = () => {
+            if (this.pixelation < 1) {
+                cancelAnimationFrame(this.idUndraw);
+                this.pixelation = 1;
+            } else {
+                this.context.drawImage(this.image, 0, 0);
+                this.depixelate(this.imageWidth, this.imageHeight, 0, 0);
+                this.idUndraw = requestAnimationFrame(undraw, this.context);
+            }
+        };
+        this.idUndraw = requestAnimationFrame(undraw, this.context);
+    }
+
+    setPixels() {
+        let width = this.imageWidth,
+            height = this.imageHeight,
+            imageData = this.context.getImageData(0, 0, width, height),
+            data = imageData.data,
+            y, x, n, m;
+
+        for (y = 0; y < height; y += this.pixelation) {
+            for (x = 0; x < width; x += this.pixelation) {
+
+                let red = data[((width * y) + x) * 4];
+                let green = data[((width * y) + x) * 4 + 1];
+                let blue = data[((width * y) + x) * 4 + 2];
+
+                for (n = 0; n < this.pixelation; n++) {
+                    for (m = 0; m < this.pixelation; m++) {
+                        if (x + m < width) {
+                            data[((width * (y + n)) + (x + m)) * 4] = red;
+                            data[((width * (y + n)) + (x + m)) * 4 + 1] = green;
+                            data[((width * (y + n)) + (x + m)) * 4 + 2] = blue;
+                        }
                     }
                 }
             }
         }
+
+        this.context.putImageData(imageData, 0, 0);
     }
 
-    this.context.putImageData( imageData, 0, 0 );
+    pixelate(){
+        this.setPixels();
+        this.pixelation += 1;
+    }
+
+    depixelate(){
+        this.setPixels();
+        this.pixelation -= 1;
+    }
 }
 
-Images.prototype.pixelate = function() {
-    this.setPixels();
-    this.pixelation += 1;
-}
 
-Images.prototype.depixelate = function() {
-    this.setPixels();
-    this.pixelation -= 1;
-}
-
-Array.prototype.slice.call(items, 0).forEach(function(el, i) {
-    var element = el;
-        image   = el.querySelector('img'),
-        canvas  = document.createElement('canvas'),
-        context = canvas.getContext('2d');
-
-    el.appendChild( canvas );
-
-    _objs.push( new Images( element, image, canvas, context ) );
-    _objs[i].bindLoad();
+[...items].forEach((element, index)=> {
+    const image = element.querySelector('img');
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    element.appendChild(canvas);
+    objects.push(new Images(element, image, canvas, context));
+    objects[index].startLoad();
 });
-
-
-
-    // var element = items,
-    //     image   = document.querySelector('img'),
-    //     canvas  = document.createElement('canvas'),
-    //     context = canvas.getContext('2d');
-
-    // items.appendChild( canvas );
-
-    //  let img = new Images( element, image, canvas, context );
-    // img.bindLoad();
 

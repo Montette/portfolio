@@ -2,8 +2,6 @@ const requiredInputs = document.querySelectorAll('[required]');
 const stringPattern = /^[a-zA-ZąćęłńóśźżĄĘŁŃÓŚŹŻ]+(?:[\s-][a-zA-ZąćęłńóśźżĄĘŁŃÓŚŹŻ]+)*$/i;
 const mailPattern = /^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/i;
 
-
-
 const showFieldValidation = (input, inputIsValid) => {
     if (inputIsValid == false) {
         input.classList.add('validate-warning');
@@ -38,10 +36,6 @@ const validateInput = (input, reg) => {
 }
 
 
-
-
-
-
 const saveToLocalStorage = (input) => {
         localStorage.setItem(input.name, input.value); 
 }
@@ -53,7 +47,6 @@ const loadFromLocalStorage = () => {
         input.value = inputValue;
     })
 }
-
 
 const validateForm = () => {
     [...requiredInputs].forEach(input => {
@@ -73,11 +66,7 @@ const validateForm = () => {
                 input.addEventListener('input', (event) => {
                     validateInput(event.target, mailPattern)
                 })
-            }
-            // if (inputName == 'message' ) {
-            //     validateInput(event.target, stringPattern);
-            // }
-           
+            }         
         }
     })
 }
@@ -95,9 +84,6 @@ const checkFormbeforeSending = (event) => {
             if (inputType == 'email' && validateInput(input, mailPattern) == false) {
                 formIsCorrect = false;
             }
-            // if (inputName == 'message' && validateInput(input, stringPattern) == false) {
-            //     formIsCorrect = false;
-            // }
         }
     })
     if (formIsCorrect) {

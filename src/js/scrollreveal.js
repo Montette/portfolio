@@ -6,9 +6,7 @@ sr.reveal('.header__title', {
     distance: '0'
 });
 sr.reveal('.skills__row');
-
 sr.reveal('.about__item');
 sr.reveal('.project');
-
 sr.reveal('.contact__container');
 

@@ -6,7 +6,7 @@ const links = [...document.querySelectorAll('.nav__link')];
 const menuHeigh = document.getElementById('nav').getBoundingClientRect().height;
 
 
-window.addEventListener('scroll', ()=> {
+window.addEventListener('scroll', () => {
 
     if (this.scrollY >= 300) {
         navigation.classList.add('color')
@@ -16,21 +16,15 @@ window.addEventListener('scroll', ()=> {
 
 
     sections.forEach(section => {
-
         let sectionId = section.getAttribute('id');
         let topPosition = section.offsetTop - menuHeigh * 5;
-        
         if ((topPosition) <= Math.round(window.scrollY)) {
-
             if (document.querySelector('.active') !== null) {
                 document.querySelector('.active').classList.remove('active');
             }
             document.querySelector(`a[href*='${sectionId}']`).classList.add('active')
-            
         }
     })
-
-
 })
 
 const scrollToElement = element => {
@@ -45,20 +39,13 @@ const scrollToElement = element => {
 
 
 const scrollOnClick = event => {
-
     event.preventDefault();
     let elHref = (event.target).getAttribute('href');
-    if(event.target.tagName.toLowerCase() === 'img') {
-        console.log('tak');
-        // event.target = event.target.parentElement;
+    if (event.target.tagName.toLowerCase() === 'img') {
         elHref = "#home";
-
     }
-    console.log(event.target);
-    console.log(elHref);
     let elementId = elHref.slice(1, elHref.length);
     let element = document.getElementById(elementId);
-
     scrollToElement(element)
 }
 
@@ -71,21 +58,21 @@ links.forEach(link => {
     }
 })
 
-menuButton.addEventListener('click', ()=> {
+menuButton.addEventListener('click', () => {
     menuButton.classList.toggle('open');
     navigationMenu.classList.toggle('visible-menu');
 
-    if(menuButton.classList.contains('open')) {
+    if (menuButton.classList.contains('open')) {
         menuButton.setAttribute("aria-label", "zamknij menu");
         menuButton.setAttribute("aria-expanded", "true");
-        document.querySelectorAll('.nav__link').forEach(link=> {
+        document.querySelectorAll('.nav__link').forEach(link => {
             link.tabIndex = 0;
         })
-        
+
     } else {
         menuButton.setAttribute("aria-label", "otwórz menu");
         menuButton.setAttribute("aria-expanded", "false");
-        document.querySelectorAll('.nav__link').forEach(link=> {
+        document.querySelectorAll('.nav__link').forEach(link => {
             link.tabIndex = -1;
         })
     }
@@ -93,57 +80,10 @@ menuButton.addEventListener('click', ()=> {
 })
 
 document.querySelectorAll('.project__photo').forEach(project => {
-    // project.addEventListener('keypress', event=> {
-    //     if (event.key === " " || event.key === "Enter") {
-    //         console.log(project.children[0].children[2])
-    //         project.children[0].children[2].classList.toggle('visibleText')
-    //     }
-    // })
-
-    // project.addEventListener('blur', event=> {
-    //         console.log(project.querySelector('a'));
-    //         if(!project.querySelectorAll('a')[0] !== document.activeElement && project.querySelectorAll('a')[1] !== document.activeElement) {
-    //         console.log(project.children[0].children[2])
-    //         project.children[0].children[2].classList.remove('visibleText')
-    //         }
-        
-    // })
-
-
-    // project.querySelectorAll('a').forEach(a => {
-
-    //     a.addEventListener('blur', ()=> {
-    //         if(project !== document.activeElement && project.querySelectorAll('a')[0] !== document.activeElement && project.querySelectorAll('a')[1] !== document.activeElement) {
-    //             console.log('NOT!!!!')
-    //             console.log(project.querySelectorAll('a')[0] )
-    //             console.log(project.querySelectorAll('a')[1] )
-    //                 project.children[0].children[2].classList.remove('visibleText')
-    //                 }
-
-    //         if(project !== document.activeElement && a !== document.activeElement ) {
-    //             console.log('NOT!!!!')
-    //                 project.children[0].children[2].classList.remove('visibleText')
-    //                 }
-        
-    //         if(!project.focus() && !project.querySelectorAll('a')[0].focus() && !project.querySelectorAll('a')[1].focus()) {
-    //             console.log('NOT!!!!')
-    //                 project.children[0].children[2].classList.remove('visibleText')
-    //                 }
-
-
-    //     })
-
-    // })
-
-
     project.addEventListener('focus', event => {
-        document.querySelectorAll('.project__photo').forEach(project=> {
+        document.querySelectorAll('.project__photo').forEach(project => {
             project.children[0].children[2].classList.remove('visibleText')
         })
-
         project.children[0].children[2].classList.add('visibleText')
-
     })
-          
-
 })
