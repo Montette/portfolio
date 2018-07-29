@@ -874,7 +874,7 @@ ul {
   .header:after {
     background: transparent url(../img/clouds3.png) repeat top center;
     z-index: 4;
-    opacity: .1;
+    opacity: .2;
     -webkit-animation: clouds 300s linear infinite;
             animation: clouds 300s linear infinite; }
   @media all and (max-width: 767px) {

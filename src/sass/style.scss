@@ -267,7 +267,7 @@ ul {
   &:after {
     background: transparent url(../img/clouds3.png) repeat top center;
     z-index: 4;
-    opacity: .1;
+    opacity: .2;
     animation: clouds 300s linear infinite;
   }
   @include screen ("phone") {
